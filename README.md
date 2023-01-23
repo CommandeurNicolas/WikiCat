@@ -5,9 +5,9 @@
 * Show details of a breed
 * Add a breed to favorites
 * Show only favorite breeds on the home page
+* Search bar to search for a precise breed
 
 ### Incoming features :
 * Local storage of breeds and their thumbnail
-* Search bar to search for a precise breed
 * Carousel of n images in the breed details
 
