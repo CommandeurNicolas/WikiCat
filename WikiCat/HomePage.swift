@@ -11,10 +11,20 @@ struct HomePage: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly: Bool = false
     
+    @State private var openSearchBar: Bool = false
+    @State var searchText: String = ""
+    
     var filteredBreeds: [CatBreed] {
-        self.modelData.breedsList.filter {
-            breed in
-            (!self.showFavoritesOnly || breed.isFavorite)
+        if openSearchBar && searchText != "" {
+            return self.modelData.breedsList.filter {
+                breed in
+                breed.name.contains(searchText)
+            }
+        } else {
+            return self.modelData.breedsList.filter {
+                breed in
+                (!self.showFavoritesOnly || breed.isFavorite)
+            }
         }
     }
     
@@ -34,28 +44,47 @@ struct HomePage: View {
             .navigationBarTitleDisplayMode(.large)
             .listStyle(.grouped)
             .padding()
+            // TODO: add .refreshable to reload breeds list and/or reload thumbnails
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button(action: {
-                        print("Search")
-                    }) {
-                        Label("Search", systemImage: "magnifyingglass")
-                            .foregroundColor(.gray)
+                if !self.openSearchBar {
+                    ToolbarItemGroup(placement: .navigationBarLeading) {
+                        Button(action: {
+                            self.openSearchBar.toggle()
+                        }) {
+                            Label("Search", systemImage: "magnifyingglass")
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.top, 10)
                     }
-                }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        self.showFavoritesOnly.toggle()
-                    }) {
-                        Label("Favorites", systemImage: self.showFavoritesOnly ? "heart.fill" : "heart")
-                            .foregroundColor(self.showFavoritesOnly ? .red : .gray)
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            self.showFavoritesOnly.toggle()
+                        }) {
+                            Label("Favorites", systemImage: self.showFavoritesOnly ? "heart.fill" : "heart")
+                                .foregroundColor(self.showFavoritesOnly ? .red : .gray)
+                        }
+                        .padding(.top, 10)
+                    }
+                } else {
+                    ToolbarItemGroup(placement: .principal) {
+                        SearchBar(searchText: $searchText, cancelAction: {
+                            self.openSearchBar.toggle()
+                        })
+                        .padding(.top, 10)
+                        .transition(.move(edge: .leading))
+                        .animation(.easeInOut(duration: 3.0), value: self.openSearchBar)
+//                            .padding(.top, -30)
                     }
                 }
             }
         }
         .onAppear {
-            self.modelData.fetchBreeds()
+            self.loadBreeds()
         }
+    }
+    
+    private func loadBreeds() {
+        self.modelData.fetchBreeds()
     }
 }
 
@@ -77,15 +106,13 @@ struct BreedListItem: View {
                         .foregroundColor(.primary)
                         .lineLimit(2)
                         .truncationMode(.tail)
-                        .padding(.bottom, 10)
-                        .padding(.leading, 10)
-                        .padding(.trailing, 10)
                     if self.breed.isFavorite {
                         Spacer()
                         Image(systemName: "heart.fill")
                             .foregroundColor(.red)
                     }
                 }
+                .padding(.bottom, 10)
                 .padding(.horizontal, 10)
             }
             .frame(width: 135)

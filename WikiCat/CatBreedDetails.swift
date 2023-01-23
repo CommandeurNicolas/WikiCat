@@ -24,10 +24,11 @@ struct CatBreedDetails: View {
                     HStack {
                         Text(self.catBreed.name)
                             .font(.title)
-                            .padding(.bottom, 10)
                         Spacer()
                         FavoriteHeart(isFavorite: $modelData.breedsList[self.breedIndex].isFavorite)
                     }
+                    .padding(.bottom, 10)
+                    
                     HStack {
                         Text("Lifespan -")
                             .bold()

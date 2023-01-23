@@ -15,6 +15,7 @@
 		030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C0D297E0CE30059B084 /* ModelData.swift */; };
 		030B5C11297E0D1B0059B084 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C10297E0D1B0059B084 /* StarRating.swift */; };
 		030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C12297E0D250059B084 /* FavoriteHeart.swift */; };
+		030B5C15297E0E160059B084 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C14297E0E160059B084 /* SearchBar.swift */; };
 		0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF28297386FD003CC31A /* WikiCatApp.swift */; };
 		0354CF2B297386FD003CC31A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF2A297386FD003CC31A /* ContentView.swift */; };
 		0354CF2D297386FE003CC31A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0354CF2C297386FE003CC31A /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		030B5C0D297E0CE30059B084 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		030B5C10297E0D1B0059B084 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		030B5C12297E0D250059B084 /* FavoriteHeart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHeart.swift; sourceTree = "<group>"; };
+		030B5C14297E0E160059B084 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0354CF25297386FD003CC31A /* WikiCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0354CF28297386FD003CC31A /* WikiCatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatApp.swift; sourceTree = "<group>"; };
 		0354CF2A297386FD003CC31A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				030B5C10297E0D1B0059B084 /* StarRating.swift */,
 				030B5C12297E0D250059B084 /* FavoriteHeart.swift */,
+				030B5C14297E0E160059B084 /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */,
 				030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */,
 				030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */,
+				030B5C15297E0E160059B084 /* SearchBar.swift in Sources */,
 				0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
