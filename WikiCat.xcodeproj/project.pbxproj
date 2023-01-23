@@ -12,6 +12,9 @@
 		030B5C08297E0C590059B084 /* CatBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C07297E0C590059B084 /* CatBreed.swift */; };
 		030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C09297E0C6A0059B084 /* CatImage.swift */; };
 		030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C0B297E0C760059B084 /* CatWeight.swift */; };
+		030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C0D297E0CE30059B084 /* ModelData.swift */; };
+		030B5C11297E0D1B0059B084 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C10297E0D1B0059B084 /* StarRating.swift */; };
+		030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C12297E0D250059B084 /* FavoriteHeart.swift */; };
 		0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF28297386FD003CC31A /* WikiCatApp.swift */; };
 		0354CF2B297386FD003CC31A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF2A297386FD003CC31A /* ContentView.swift */; };
 		0354CF2D297386FE003CC31A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0354CF2C297386FE003CC31A /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		030B5C07297E0C590059B084 /* CatBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreed.swift; sourceTree = "<group>"; };
 		030B5C09297E0C6A0059B084 /* CatImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImage.swift; sourceTree = "<group>"; };
 		030B5C0B297E0C760059B084 /* CatWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatWeight.swift; sourceTree = "<group>"; };
+		030B5C0D297E0CE30059B084 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		030B5C10297E0D1B0059B084 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		030B5C12297E0D250059B084 /* FavoriteHeart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHeart.swift; sourceTree = "<group>"; };
 		0354CF25297386FD003CC31A /* WikiCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0354CF28297386FD003CC31A /* WikiCatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatApp.swift; sourceTree = "<group>"; };
 		0354CF2A297386FD003CC31A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,8 +95,18 @@
 				030B5C07297E0C590059B084 /* CatBreed.swift */,
 				030B5C09297E0C6A0059B084 /* CatImage.swift */,
 				030B5C0B297E0C760059B084 /* CatWeight.swift */,
+				030B5C0D297E0CE30059B084 /* ModelData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		030B5C0F297E0CF00059B084 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				030B5C10297E0D1B0059B084 /* StarRating.swift */,
+				030B5C12297E0D250059B084 /* FavoriteHeart.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0354CF1C297386FD003CC31A = {
@@ -118,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				030B5C06297E0C4C0059B084 /* Model */,
+				030B5C0F297E0CF00059B084 /* View */,
 				030B5C01297E0BCF0059B084 /* Info.plist */,
 				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
 				0354CF2A297386FD003CC31A /* ContentView.swift */,
@@ -286,10 +303,13 @@
 			files = (
 				030B5C08297E0C590059B084 /* CatBreed.swift in Sources */,
 				030B5C05297E0C360059B084 /* CatBreedDetails.swift in Sources */,
+				030B5C11297E0D1B0059B084 /* StarRating.swift in Sources */,
 				0354CF2B297386FD003CC31A /* ContentView.swift in Sources */,
 				030B5C03297E0C160059B084 /* HomePage.swift in Sources */,
 				030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */,
+				030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */,
 				030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */,
+				030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */,
 				0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

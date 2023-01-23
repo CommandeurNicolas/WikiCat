@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct HomePage: View {
-    @State private var breedsList: [CatBreed] = []
+    @EnvironmentObject var modelData: ModelData
+    @State private var showFavoritesOnly: Bool = false
     
+    var filteredBreeds: [CatBreed] {
+        self.modelData.breedsList.filter {
+            breed in
+            (!self.showFavoritesOnly || breed.isFavorite)
+        }
+    }
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 25) {
-                    ForEach(breedsList, id: \.id) {
+                    ForEach(self.filteredBreeds, id: \.id) {
                         breed in
                         BreedListItem(breed: breed)
                             .shadow(color: .gray, radius: 5, x: 2, y: 2)
@@ -33,47 +40,22 @@ struct HomePage: View {
                         print("Search")
                     }) {
                         Label("Search", systemImage: "magnifyingglass")
+                            .foregroundColor(.gray)
                     }
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
-                        print("Favorites")
+                        self.showFavoritesOnly.toggle()
                     }) {
-                        Label("Favorites", systemImage: "heart.fill")
+                        Label("Favorites", systemImage: self.showFavoritesOnly ? "heart.fill" : "heart")
+                            .foregroundColor(self.showFavoritesOnly ? .red : .gray)
                     }
                 }
             }
         }
         .onAppear {
-            self.loadBreeds()
+            self.modelData.fetchBreeds()
         }
-    }
-    
-    private func loadBreeds() {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds?limit=10") else {
-            print("Invalid URL")
-            return
-        }
-        guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String else {
-            print("Retrieving API KEY failed")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
-        URLSession.shared.dataTask(with: request) {
-            data, response, error in
-            if let data = data {
-                do {
-                    let result = try JSONDecoder().decode([CatBreed].self, from: data)
-                    DispatchQueue.main.async {
-                        self.breedsList = result
-                    }
-                    return
-                } catch { print("breeds error \(error)") }
-            }
-        }.resume()
     }
 }
 
@@ -89,15 +71,24 @@ struct BreedListItem: View {
                     .padding(.top, 5)
                     .padding(.leading, 5)
                     .padding(.trailing, 5)
-                Text(self.breed.name)
-                    .font(.system(size: 10, weight: .semibold, design: .rounded))
-                    .foregroundColor(.primary)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .padding(.bottom, 10)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
+                HStack {
+                    Text(self.breed.name)
+                        .font(.system(size: 10, weight: .semibold, design: .rounded))
+                        .foregroundColor(.primary)
+                        .lineLimit(2)
+                        .truncationMode(.tail)
+                        .padding(.bottom, 10)
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
+                    if self.breed.isFavorite {
+                        Spacer()
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                    }
+                }
+                .padding(.horizontal, 10)
             }
+            .frame(width: 135)
             .background(.white)
             .cornerRadius(10)
         }
@@ -124,8 +115,7 @@ struct BreedReferenceAsyncImage: View {
                 Image(systemName: "exclamationmark.icloud")
                     .resizable()
                     .scaledToFit()
-                    .background(.red)
-                    .foregroundColor(.white)
+                    .foregroundColor(.red)
                     .padding()
             @unknown default:
                 EmptyView()
@@ -139,5 +129,6 @@ struct BreedReferenceAsyncImage: View {
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         HomePage()
+            .environmentObject(ModelData())
     }
 }

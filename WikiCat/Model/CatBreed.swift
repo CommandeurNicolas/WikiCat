@@ -17,8 +17,8 @@ struct CatBreed: Codable, Identifiable {
     let wikipedia_url: String?
     let temperament: String?
     let origin: String
-//    let country_codes: String
-//    let country_code: String
+    //    let country_codes: String
+    //    let country_code: String
     let description: String
     let life_span: String?
     let alt_names: String?
@@ -77,5 +77,9 @@ struct CatBreed: Codable, Identifiable {
     let reference_image_id: String?
     let image: CatImage?
     
-    static let test: CatBreed = CatBreed(id: "1", weight: CatWeight(imperial: "13 lbs", metric: "6 Kg"), name: "Cat", cfa_url: nil, vetstreet_url: nil, vcahospitals_url: nil, wikipedia_url: nil, temperament: nil, origin: "France", description: "It's a magnificent cat !", life_span: nil, alt_names: "\"Le chat\"", experimental: nil, hairless: nil, natural: nil, rare: nil, rex: nil, suppressed_tail: nil, short_legs: nil, hypoallergenic: nil, indoor: nil, lap: nil, adaptability: nil, affection_level: nil, child_friendly: nil, dog_friendly: nil, energy_level: nil, grooming: nil, health_issues: nil, intelligence: nil, shedding_level: nil, social_needs: nil, stranger_friendly: nil, vocalisation: nil, reference_image_id: nil, image: CatImage(id: "1", width: 1, height: 1, url: "https://cdn2.thecatapi.com/images/ai6Jps4sx.jpg"))
+    var isFavorite: Bool = false
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, weight, name, cfa_url, vetstreet_url, vcahospitals_url, wikipedia_url, temperament, origin, description, life_span, alt_names, experimental, hairless, natural, rare, rex, suppressed_tail, short_legs, hypoallergenic, indoor, lap, adaptability, affection_level, child_friendly, dog_friendly, energy_level, grooming, health_issues, intelligence, shedding_level, social_needs, stranger_friendly, vocalisation, reference_image_id, image
+    }
 }
