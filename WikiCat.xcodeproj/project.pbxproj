@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030B5C03297E0C160059B084 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C02297E0C160059B084 /* HomePage.swift */; };
+		030B5C05297E0C360059B084 /* CatBreedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C04297E0C360059B084 /* CatBreedDetails.swift */; };
+		030B5C08297E0C590059B084 /* CatBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C07297E0C590059B084 /* CatBreed.swift */; };
+		030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C09297E0C6A0059B084 /* CatImage.swift */; };
+		030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C0B297E0C760059B084 /* CatWeight.swift */; };
 		0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF28297386FD003CC31A /* WikiCatApp.swift */; };
 		0354CF2B297386FD003CC31A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF2A297386FD003CC31A /* ContentView.swift */; };
 		0354CF2D297386FE003CC31A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0354CF2C297386FE003CC31A /* Assets.xcassets */; };
@@ -36,6 +41,11 @@
 /* Begin PBXFileReference section */
 		030B5C00297E0BB90059B084 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		030B5C01297E0BCF0059B084 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		030B5C02297E0C160059B084 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		030B5C04297E0C360059B084 /* CatBreedDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedDetails.swift; sourceTree = "<group>"; };
+		030B5C07297E0C590059B084 /* CatBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreed.swift; sourceTree = "<group>"; };
+		030B5C09297E0C6A0059B084 /* CatImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImage.swift; sourceTree = "<group>"; };
+		030B5C0B297E0C760059B084 /* CatWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatWeight.swift; sourceTree = "<group>"; };
 		0354CF25297386FD003CC31A /* WikiCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0354CF28297386FD003CC31A /* WikiCatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatApp.swift; sourceTree = "<group>"; };
 		0354CF2A297386FD003CC31A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030B5C06297E0C4C0059B084 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				030B5C07297E0C590059B084 /* CatBreed.swift */,
+				030B5C09297E0C6A0059B084 /* CatImage.swift */,
+				030B5C0B297E0C760059B084 /* CatWeight.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0354CF1C297386FD003CC31A = {
 			isa = PBXGroup;
 			children = (
@@ -97,11 +117,14 @@
 		0354CF27297386FD003CC31A /* WikiCat */ = {
 			isa = PBXGroup;
 			children = (
+				030B5C06297E0C4C0059B084 /* Model */,
 				030B5C01297E0BCF0059B084 /* Info.plist */,
 				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
 				0354CF2A297386FD003CC31A /* ContentView.swift */,
+				030B5C02297E0C160059B084 /* HomePage.swift */,
 				0354CF2C297386FE003CC31A /* Assets.xcassets */,
 				0354CF2E297386FE003CC31A /* Preview Content */,
+				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
 			);
 			path = WikiCat;
 			sourceTree = "<group>";
@@ -261,7 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				030B5C08297E0C590059B084 /* CatBreed.swift in Sources */,
+				030B5C05297E0C360059B084 /* CatBreedDetails.swift in Sources */,
 				0354CF2B297386FD003CC31A /* ContentView.swift in Sources */,
+				030B5C03297E0C160059B084 /* HomePage.swift in Sources */,
+				030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */,
+				030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */,
 				0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
