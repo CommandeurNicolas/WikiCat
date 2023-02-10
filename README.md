@@ -10,4 +10,5 @@
 ### Incoming features :
 * Local storage of breeds and their thumbnail
 * Carousel of n images in the breed details
-
+* Tags
+* Filter by tags
