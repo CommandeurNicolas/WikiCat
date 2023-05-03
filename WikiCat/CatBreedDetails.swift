@@ -18,6 +18,46 @@ struct CatBreedDetails: View {
     var body: some View {
         ScrollView {
             VStack {
+                DetailsImage(imgUrl: self.catBreed.image?.id)
+                HStack {
+                    Text(self.catBreed.name)
+                        .font(.custom("Asap-Regular", size: 24))
+                        .foregroundColor(Color.ui.neutralColor)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
+                        .truncationMode(.tail)
+                    Spacer()
+                }
+                .padding(.horizontal, 15)
+                .padding(.top, 32)
+                HStack {
+                    Text(self.catBreed.country_code.flag())
+                    Text(self.catBreed.origin)
+                        .font(.custom("Asap-Regular", size: 24))
+                        .foregroundColor(Color.ui.neutralColor)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
+                        .truncationMode(.tail)
+                    Spacer()
+                }
+                .padding(.horizontal, 15)
+//                .padding(.vertical, 32)
+            }
+        }
+    }
+}
+
+struct CatBreedDetailsLegacy: View {
+    @EnvironmentObject var modelData: ModelData
+    let catBreed: CatBreed
+    
+    var breedIndex: Int {
+        modelData.breedsList.firstIndex(where: {$0.id == catBreed.id})!
+    }
+    
+    var body: some View {
+        ScrollView {
+            VStack {
                 DetailsImage(imgUrl: self.catBreed.image?.url)
                 VStack(alignment: .leading) {
                     // MARK: Important infos
@@ -25,7 +65,7 @@ struct CatBreedDetails: View {
                         Text(self.catBreed.name)
                             .font(.title)
                         Spacer()
-                        FavoriteHeart(isFavorite: $modelData.breedsList[self.breedIndex].isFavorite)
+//                        FavoriteHeart(isFavorite: $modelData.breedsList[self.breedIndex].isFavorite)
                     }
                     .padding(.bottom, 10)
                     
@@ -106,7 +146,8 @@ struct DetailsImage: View {
                 Image(systemName: "exclamationmark.icloud")
             }
         }
-        .padding()
+        .padding(.horizontal, 15)
+        .padding(.top, 15)
     }
 }
 
@@ -133,6 +174,7 @@ struct StarRatingDetailField: View {
 
 struct CatBreedDetails_Previews: PreviewProvider {
     static var previews: some View {
-        CatBreedDetails(catBreed: ModelData().breedsList[0])
+        CatBreedDetails(catBreed: CatBreed.test)
+            .environmentObject(ModelData())
     }
 }

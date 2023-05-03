@@ -31,19 +31,18 @@ struct HomePage: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 25) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
                     ForEach(self.filteredBreeds, id: \.id) {
                         breed in
                         BreedListItem(breed: breed)
-                            .shadow(color: .gray, radius: 5, x: 2, y: 2)
                     }
                 }
                 .padding()
             }
-            .navigationTitle("WikiCat 🐱")
+            .navigationTitle("WikiCat")
             .navigationBarTitleDisplayMode(.large)
             .listStyle(.grouped)
-            .padding()
+//            .padding()
             // TODO: add .refreshable to reload breeds list and/or reload thumbnails
             .toolbar {
                 if !self.openSearchBar {
@@ -51,19 +50,25 @@ struct HomePage: View {
                         Button(action: {
                             self.openSearchBar.toggle()
                         }) {
-                            Label("Search", systemImage: "magnifyingglass")
-                                .foregroundColor(.gray)
+                            Image("search")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 44)
+                                .foregroundColor(Color.ui.primaryColor)
                         }
-                        .padding(.top, 10)
+//                        .padding(.vertical, 32)
                     }
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button(action: {
                             self.showFavoritesOnly.toggle()
                         }) {
-                            Label("Favorites", systemImage: self.showFavoritesOnly ? "heart.fill" : "heart")
-                                .foregroundColor(self.showFavoritesOnly ? .red : .gray)
+                            Image(self.showFavoritesOnly ? "heart.fill" : "heart")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 44, height: 44)
+                                .foregroundColor(Color.ui.primaryColor)
                         }
-                        .padding(.top, 10)
+//                        .padding(.vertical, 32)
                     }
                 } else {
                     ToolbarItemGroup(placement: .principal) {
@@ -77,6 +82,7 @@ struct HomePage: View {
                     }
                 }
             }
+            .background(Color.ui.backgroundColor)
         }
         .task {
             await self.loadBreeds()
@@ -85,71 +91,6 @@ struct HomePage: View {
     
     private func loadBreeds() async {
         await self.modelData.fetchBreeds()
-    }
-}
-
-struct BreedListItem: View {
-    let breed: CatBreed!
-    
-    var body: some View {
-        NavigationLink {
-            CatBreedDetails(catBreed: self.breed)
-        } label: {
-            VStack {
-                BreedReferenceAsyncImage(image: self.breed.image)
-                    .padding(.top, 5)
-                    .padding(.leading, 5)
-                    .padding(.trailing, 5)
-                HStack {
-                    Text(self.breed.name)
-                        .font(.system(size: 10, weight: .semibold, design: .rounded))
-                        .foregroundColor(.primary)
-                        .lineLimit(2)
-                        .truncationMode(.tail)
-                    if self.breed.isFavorite {
-                        Spacer()
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(.red)
-                    }
-                }
-                .padding(.bottom, 10)
-                .padding(.horizontal, 10)
-            }
-            .frame(width: 135)
-            .background(.white)
-            .cornerRadius(10)
-        }
-    }
-}
-
-struct BreedReferenceAsyncImage: View {
-    let image: CatImage!
-    
-    var body: some View {
-        AsyncImage(url: URL(string: self.image.url), transaction: Transaction(animation: .spring())) {
-            phase in
-            switch phase {
-            case .empty:
-                ProgressView()
-                    .font(.largeTitle)
-                    .padding()
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .transition(.slide)
-            case .failure(_):
-                Image(systemName: "exclamationmark.icloud")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.red)
-                    .padding()
-            @unknown default:
-                EmptyView()
-            }
-        }
-        .frame(width: 125, height: 125)
-        .cornerRadius(5)
     }
 }
 
