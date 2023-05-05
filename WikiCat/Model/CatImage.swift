@@ -9,7 +9,6 @@ import Foundation
 
 struct CatImage: Codable, Identifiable {
     let id: String
-    let width: Int
-    let height: Int
     let url: String
+    let width, height: Int
 }

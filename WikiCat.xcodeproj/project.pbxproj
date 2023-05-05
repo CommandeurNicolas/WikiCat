@@ -23,6 +23,7 @@
 		0354CF3A297386FE003CC31A /* WikiCatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF39297386FE003CC31A /* WikiCatTests.swift */; };
 		0354CF44297386FE003CC31A /* WikiCatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF43297386FE003CC31A /* WikiCatUITests.swift */; };
 		0354CF46297386FE003CC31A /* WikiCatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */; };
+		F64CA95F2A03FFEF0098991E /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64CA95E2A03FFEF0098991E /* IntentProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		0354CF3F297386FE003CC31A /* WikiCatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiCatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0354CF43297386FE003CC31A /* WikiCatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatUITests.swift; sourceTree = "<group>"; };
 		0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F64CA95E2A03FFEF0098991E /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				0354CF2C297386FE003CC31A /* Assets.xcassets */,
 				0354CF2E297386FE003CC31A /* Preview Content */,
 				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
+				F64CA95E2A03FFEF0098991E /* IntentProvider.swift */,
 			);
 			path = WikiCat;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F64CA95F2A03FFEF0098991E /* IntentProvider.swift in Sources */,
 				030B5C08297E0C590059B084 /* CatBreed.swift in Sources */,
 				030B5C05297E0C360059B084 /* CatBreedDetails.swift in Sources */,
 				030B5C11297E0D1B0059B084 /* StarRating.swift in Sources */,
