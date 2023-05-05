@@ -6,6 +6,7 @@
 * Add a breed to favorites
 * Show only favorite breeds on the home page
 * Search bar to search for a precise breed
+* Shortcut on your iDevice main screen / Siri phrases reactions
 
 ### Incoming features :
 * Local storage of breeds and their thumbnail
