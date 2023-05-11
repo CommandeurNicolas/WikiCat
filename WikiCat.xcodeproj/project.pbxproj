@@ -155,9 +155,9 @@
 				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
 				0354CF2A297386FD003CC31A /* ContentView.swift */,
 				030B5C02297E0C160059B084 /* HomePage.swift */,
+				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
 				0354CF2C297386FE003CC31A /* Assets.xcassets */,
 				0354CF2E297386FE003CC31A /* Preview Content */,
-				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
 			);
 			path = WikiCat;
 			sourceTree = "<group>";
