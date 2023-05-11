@@ -10,11 +10,14 @@ import Combine
 import UIKit
 
 final class ModelData: ObservableObject {
+    // Shared instance of my model data (use it everywhere you need to access ModelData)
+    static let shared: ModelData = ModelData()
+    
     private final let base_url = "https://api.thecatapi.com/v1/"
     
     @Published var breedsList: [CatBreed] = []
     var specificBreed: CatBreed? = nil
-    var imageView: UIImage? = nil
+    var randomCatImage: UIImage? = nil
     
     // Fetch a single specific breed
     func fetchSpecificBreed(breedName: String) async {
@@ -138,3 +141,5 @@ final class ModelData: ObservableObject {
         ).resume()
     }
 }
+
+

@@ -19,7 +19,8 @@ struct IntentProvider: AppShortcutsProvider {
                 phrases: [
                     // Phrases you can say to Siri for her to react
                     "Show me a picture of a cat"
-                ]
+                ],
+                systemImageName: "photo"
             ),
             AppShortcut(
                 intent: RandomCatBreedIntent(),
@@ -27,56 +28,111 @@ struct IntentProvider: AppShortcutsProvider {
                     // Phrases you can say to Siri for her to react
                     "Show me a cat",
                     "What is your favorite cat breed"
-                ]
+                ],
+                systemImageName: "text.below.photo"
             ),
             AppShortcut(
                 intent: SpecificCatBreedIntent(),
                 phrases: [
                     // Phrases you can say to Siri for her to react
                     "Search for a cat breed"
-                ]
+                ],
+                systemImageName: "text.below.photo"
             )
         ]
     }
 }
 
-struct RandomCatImageIntent: AppIntent {
+class ImageSaver: NSObject {
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+    }
+
+    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        ModelData.shared.randomCatImage = nil
+        print("Save finished!")
+    }
+}
+struct RandomCatImageIntent: AppIntent  {
     static var title: LocalizedStringResource = "Random cat pic"
     static var description = IntentDescription("Show the image of a random cat")
     
     let screenBounds = UIScreen().bounds
     
-    func perform() async throws -> some IntentResult {
-        let modelData = ModelData()
+    static var openAppWhenRun: Bool = false
+    
+    @MainActor
+    func perform() async throws -> some IntentResult & ShowsSnippetView {
+        let modelData = ModelData.shared
         var randomImage: UIImage? = nil
         // Get a random CatImage and download it
         await modelData.getARandomImage() {
             data, response, error in
             guard let data = data, error == nil else { return }
-            print("random image callback")
             randomImage = UIImage(data: data)
         }
         // Need to wait for the image to finish to download (didn't find any other working solution) TODO: rework
-        print("wait 3 sec")
         try await Task.sleep(nanoseconds: UInt64(1.5 * Double(NSEC_PER_SEC)))
 
         // Send error to user if the image is nil
-        print("check random image")
         guard let randomImage = randomImage else {
             throw MyIntentError.message("We couldn't retrieve an image 😿")
         }
+        modelData.randomCatImage = randomImage
         
         // Show the image to the user
-        print("return image")
         return .result(
+            value: IntentFile(data: randomImage.pngData()!, filename: "randomCatImage"),
+            dialog: "Here is an image of a cat",
             content: {
-                Image(uiImage: randomImage)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(10)
-                    .padding(.horizontal, 10)
+                VStack {
+                    Image(uiImage: randomImage)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(10)
+                        .padding(.horizontal, 10)
+                }
             }
         )
+    }
+    
+    static var parameterSummary: some ParameterSummary {
+        Summary("Show a random image of a cat")
+    }
+}
+struct SaveImageIntent: AppIntent {
+    static var title: LocalizedStringResource = "Save the image"
+    static var description = IntentDescription("Save the image to photo gallery")
+    
+    static var openAppWhenRun: Bool = false
+    
+    @Parameter(title: "Do you want to save the image ?")
+    var doSaveImage: Bool
+    
+    @MainActor
+    func perform() async throws -> some IntentResult {
+        let modelData = ModelData.shared
+        guard let randomImage = modelData.randomCatImage else {
+            throw MyIntentError.message("There is no image to save 😿")
+        }
+        
+        let saveImageFunc = {
+            let imageSaver = ImageSaver()
+            imageSaver.writeToPhotoAlbum(image: randomImage)
+        }
+        
+        if doSaveImage {
+            saveImageFunc()
+        } else {
+            let confirmed: Bool = try await $doSaveImage.requestConfirmation(for: doSaveImage)
+            confirmed ? saveImageFunc() : nil
+        }
+        
+        return .result()
+    }
+    
+    static var parameterSummary: some ParameterSummary {
+        Summary("Save the random image in photo gallery")
     }
 }
 
@@ -86,7 +142,10 @@ struct RandomCatBreedIntent: AppIntent {
     
     let screenBounds = UIScreen().bounds
     
-    func perform() async throws -> some IntentResult {
+    static var openAppWhenRun: Bool = false
+    
+    @MainActor
+    func perform() async throws -> some IntentResult & ShowsSnippetView {
         let modelData = ModelData()
         var referenceImage: UIImage? = nil
         
@@ -126,6 +185,10 @@ struct RandomCatBreedIntent: AppIntent {
             }
         )
     }
+    
+    static var parameterSummary: some ParameterSummary {
+        Summary("Show the details of a random cat breed")
+    }
 }
 
 struct SpecificCatBreedIntent: AppIntent {
@@ -134,10 +197,13 @@ struct SpecificCatBreedIntent: AppIntent {
     
     let screenBounds = UIScreen().bounds
     
-    @Parameter(title: "Breed name")
+    static var openAppWhenRun: Bool = false
+    
+    @Parameter(title: "Breed name", requestValueDialog: "What's the name of the breed ?")
     var breedName: String
     
-    func perform() async throws -> some IntentResult {
+    @MainActor
+    func perform() async throws -> some IntentResult & ShowsSnippetView {
         let modelData = ModelData()
         var referenceImage: UIImage? = nil
         
@@ -176,6 +242,10 @@ struct SpecificCatBreedIntent: AppIntent {
                 CatBreedDetailsSnippetView(catBreed: catBreed, referenceImage: referenceImage)
             }
         )
+    }
+    
+    static var parameterSummary: some ParameterSummary {
+        Summary("Show the details of \(\.$breedName)")
     }
 }
 
@@ -263,3 +333,4 @@ struct CatBreedDetailsSnippetView: View {
         
     }
 }
+
