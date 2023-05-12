@@ -6,6 +6,11 @@
 * Add a breed to favorites
 * Show only favorite breeds on the home page
 * Search bar to search for a precise breed
+* Shortcut on your iDevice main screen / Siri phrases reactions
+    * Get a random image of a cat
+    * Save the image in your photo gallery
+    * Get the details of a random cat breed
+    * Get the details of a specific cat breed
 
 ### Incoming features :
 * Local storage of breeds and their thumbnail

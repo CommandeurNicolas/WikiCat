@@ -23,6 +23,12 @@
 		0354CF3A297386FE003CC31A /* WikiCatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF39297386FE003CC31A /* WikiCatTests.swift */; };
 		0354CF44297386FE003CC31A /* WikiCatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF43297386FE003CC31A /* WikiCatUITests.swift */; };
 		0354CF46297386FE003CC31A /* WikiCatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */; };
+		F64CA95F2A03FFEF0098991E /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64CA95E2A03FFEF0098991E /* IntentProvider.swift */; };
+		F6DA8E6B2A0D3D0F00F75EEA /* RandomImageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */; };
+		F6DA8E6D2A0D3D4500F75EEA /* RandomCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */; };
+		F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */; };
+		F6DA8E712A0D3D8900F75EEA /* MyIntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */; };
+		F6DA8E732A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +70,12 @@
 		0354CF3F297386FE003CC31A /* WikiCatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiCatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0354CF43297386FE003CC31A /* WikiCatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatUITests.swift; sourceTree = "<group>"; };
 		0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F64CA95E2A03FFEF0098991E /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
+		F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageIntent.swift; sourceTree = "<group>"; };
+		F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatBreedIntent.swift; sourceTree = "<group>"; };
+		F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificCatBreedIntent.swift; sourceTree = "<group>"; };
+		F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIntentError.swift; sourceTree = "<group>"; };
+		F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedDetailsSnippetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,15 +148,16 @@
 		0354CF27297386FD003CC31A /* WikiCat */ = {
 			isa = PBXGroup;
 			children = (
+				F6DA8E692A0D3CF400F75EEA /* AppIntent */,
 				030B5C06297E0C4C0059B084 /* Model */,
 				030B5C0F297E0CF00059B084 /* View */,
 				030B5C01297E0BCF0059B084 /* Info.plist */,
 				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
 				0354CF2A297386FD003CC31A /* ContentView.swift */,
 				030B5C02297E0C160059B084 /* HomePage.swift */,
+				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
 				0354CF2C297386FE003CC31A /* Assets.xcassets */,
 				0354CF2E297386FE003CC31A /* Preview Content */,
-				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
 			);
 			path = WikiCat;
 			sourceTree = "<group>";
@@ -172,6 +185,19 @@
 				0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */,
 			);
 			path = WikiCatUITests;
+			sourceTree = "<group>";
+		};
+		F6DA8E692A0D3CF400F75EEA /* AppIntent */ = {
+			isa = PBXGroup;
+			children = (
+				F64CA95E2A03FFEF0098991E /* IntentProvider.swift */,
+				F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */,
+				F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */,
+				F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */,
+				F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */,
+				F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */,
+			);
+			path = AppIntent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,14 +330,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6DA8E712A0D3D8900F75EEA /* MyIntentError.swift in Sources */,
+				F64CA95F2A03FFEF0098991E /* IntentProvider.swift in Sources */,
 				030B5C08297E0C590059B084 /* CatBreed.swift in Sources */,
 				030B5C05297E0C360059B084 /* CatBreedDetails.swift in Sources */,
+				F6DA8E6B2A0D3D0F00F75EEA /* RandomImageIntent.swift in Sources */,
+				F6DA8E6D2A0D3D4500F75EEA /* RandomCatBreedIntent.swift in Sources */,
+				F6DA8E732A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift in Sources */,
 				030B5C11297E0D1B0059B084 /* StarRating.swift in Sources */,
 				0354CF2B297386FD003CC31A /* ContentView.swift in Sources */,
 				030B5C03297E0C160059B084 /* HomePage.swift in Sources */,
 				030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */,
 				030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */,
 				030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */,
+				F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */,
 				030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */,
 				030B5C15297E0E160059B084 /* SearchBar.swift in Sources */,
 				0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */,
@@ -475,9 +507,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WikiCat/Preview Content\"";
+				DEVELOPMENT_TEAM = ALM9Q3554T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WikiCat/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "If you want to save a cat picture to your photo library you need to give us access to it !";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -504,9 +538,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WikiCat/Preview Content\"";
+				DEVELOPMENT_TEAM = ALM9Q3554T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WikiCat/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "If you want to save a cat picture to your photo library you need to give us access to it !";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

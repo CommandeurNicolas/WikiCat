@@ -78,13 +78,13 @@ struct HomePage: View {
                 }
             }
         }
-        .onAppear {
-            self.loadBreeds()
+        .task {
+            await self.loadBreeds()
         }
     }
     
-    private func loadBreeds() {
-        self.modelData.fetchBreeds()
+    private func loadBreeds() async {
+        await self.modelData.fetchBreeds()
     }
 }
 
