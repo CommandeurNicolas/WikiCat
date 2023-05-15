@@ -31,11 +31,6 @@ struct CatBreedImportantDetails: View {
             RoundedRectangle(cornerRadius: 24)
                 .stroke(Color.ui.primaryColor, lineWidth: 1)
         )
-//        .overlay {
-//            RoundedRectangle(cornerRadius: 24)
-//                .fill(Color.ui.backgroundColor)
-//                .bor
-//        }
         
     }
 }
@@ -43,6 +38,5 @@ struct CatBreedImportantDetails: View {
 struct CatBreedImportantDetails_Previews: PreviewProvider {
     static var previews: some View {
         CatBreedImportantDetails(title: "Life span", description: "14 - 15 years")
-//            .frame(width: 100, height: 100)
     }
 }

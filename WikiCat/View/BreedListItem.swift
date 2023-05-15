@@ -27,8 +27,6 @@ struct BreedListItem: View {
                         BreedReferenceAsyncImage(image: self.breed.image)
                             .frame(width: 150, height: 180)
                     }
-//                    BreedReferenceAsyncImage(image: self.breed.image)
-//                        .frame(width: 150, height: 180)
                     // -- MARK: Name of the breed + fav heart if is fav
                     HStack {
                         Text(self.breed.name)
