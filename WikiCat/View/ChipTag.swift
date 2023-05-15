@@ -7,45 +7,51 @@
 
 import SwiftUI
 
-struct TraitChipTag: View {
-    let text: String
-    let color: Color
-    
-    @Environment(\.colorScheme) var colorScheme
-    
-    var body: some View {
-        Text(text)
-            .foregroundColor(colorScheme == .dark ? .white : Color.ui.neutralColor)
-            .font(.custom("Asap-Regular", size: 8))
-            .padding(.horizontal, 10)
-            .padding(.vertical, 4)
-            .background(
-                ZStack {
-                    Capsule()
-                        .fill(color.opacity(0.2))
-                    Capsule()
-                        .stroke(color)
-                }
-            )
-    }
+enum ChipTagSize {
+    case small
+    case large
 }
 
 struct ChipTag: View {
     let text: String
-    
+    let color: Color
+    let chipSize: ChipTagSize
+
     @Environment(\.colorScheme) var colorScheme
     
+    private var fontSize: CGFloat {
+        get {
+            switch chipSize {
+            case .small:
+                return 8.0
+            case .large:
+                return 16.0
+            }
+        }
+    }
+    private var paddingSize: CGFloat {
+        get {
+            switch chipSize {
+            case .small:
+                return 10.0
+            case .large:
+                return 16.0
+            }
+        }
+    }
+
     var body: some View {
         Text(text)
-            .foregroundColor(colorScheme == .dark ? .white : .black)
-            .font(.system(size: 16))
-//            .frame(height: 32)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
+            .foregroundColor(colorScheme == .dark ? .white : Color.ui.neutralColor)
+            .font(.custom("Asap-Regular", size: self.fontSize))
+            .padding(.horizontal, self.paddingSize)
+            .padding(.vertical, self.paddingSize/2)
             .background(
-                ZStack(alignment: .leading) {
+                ZStack {
                     Capsule()
-                        .fill(colorScheme == .dark ? .red.opacity(0.5) : .red.opacity(0.3))
+                        .strokeBorder(color)
+                        .background(Capsule().fill(color.opacity(0.2)))
+                        
                 }
             )
     }
@@ -53,13 +59,13 @@ struct ChipTag: View {
 
 struct ChipTag_Previews: PreviewProvider {
     static var previews: some View {
-        ChipTag(text: "Hello World !")
+        ChipTag(text: "Hello World !", color: Color.ui.originChipColor, chipSize: .large)
             .previewLayout(.sizeThatFits)
             .padding()
-            .previewDisplayName("Chip tag")
-        TraitChipTag(text: "Hello world", color: Color.ui.originChipColor)
+            .previewDisplayName("Large")
+        ChipTag(text: "Hello World !", color: Color.ui.originChipColor, chipSize: .small)
             .previewLayout(.sizeThatFits)
             .padding()
-            .previewDisplayName("Trait Chip tag")
+            .previewDisplayName("Small")
     }
 }

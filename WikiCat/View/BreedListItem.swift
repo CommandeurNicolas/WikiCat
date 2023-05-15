@@ -45,10 +45,15 @@ struct BreedListItem: View {
                     }
                     .padding(.vertical, 8)
                     .padding(.horizontal, 10)
-                    // -- MARK: Adding country and trait chips
-                    BreedTraitList(breed: breed)
-                        .padding(.bottom, 8)
-                        .padding(.horizontal, 10)
+                    // -- MARK: Adding country and attributes chips
+                    BreedAttributesList(
+                        breed: breed,
+                        withCountry: true,
+                        chipSize: .small,
+                        chipColor: Color.ui.secondaryColor
+                    )
+                    .padding(.bottom, 8)
+                    .padding(.horizontal, 10)
                     // -- TODO: delete Spacer if flexible grid and move vertical padding to VStack spacing
                     Spacer(minLength: 0)
                 }
@@ -73,7 +78,7 @@ struct BreedReferenceAsyncImage: View {
                 image
                     .resizable()
                     .scaledToFill()
-                    .transition(.slide)
+                    .transition(.opacity)
             case .failure(_):
                 Image(systemName: "exclamationmark.icloud")
                     .resizable()
@@ -86,118 +91,6 @@ struct BreedReferenceAsyncImage: View {
         }
         .frame(width: 150, height: 180)
         .cornerRadius(6)
-    }
-}
-
-struct BreedTraitList: View {
-    let breed: CatBreed!
-    
-    @State private var traitList: [String] = []
-    
-    var body: some View {
-        FlexibleView(data: traitList, spacing: 4, alignment: .leading) {
-            item in
-            traitList.firstIndex(of: item) == 0
-            ? TraitChipTag(text: item, color: Color.ui.originChipColor)
-            : TraitChipTag(text: item, color: Color.ui.secondaryColor)
-        }
-        .onAppear {
-            traitList.removeAll()
-            let countryFlag = breed.country_code.flag()
-            var countryName = ""
-            switch(breed.origin) {
-            case "United State":
-                countryName = "US"
-            case "United Kingdom":
-                countryName = "UK"
-            default:
-                countryName = breed.origin
-            }
-            let countryChipText = "\(countryFlag) \(countryName)"
-            traitList.append(countryChipText)
-            
-            if breed.isExperimental {
-                traitList.append("Experimental")
-            }
-            if breed.isHairless {
-                traitList.append("Hairless")
-            }
-            if breed.isNatural {
-                traitList.append("Natural")
-            }
-            if breed.isRare {
-                traitList.append("Rare")
-            }
-            if breed.isRex {
-                traitList.append("Rex")
-            }
-            if breed.hasSuppressedTail {
-                traitList.append("Suppressed tail")
-            }
-            if breed.hasShortLegs {
-                traitList.append("Short legs")
-            }
-            if breed.isHypoallergenic {
-                traitList.append("Hypoallergenic")
-            }
-        }
-    }
-}
-
-struct FlexibleView<Data: Collection, Content: View>: View
-where Data.Element: Hashable {
-    let data: Data
-    let spacing: CGFloat
-    let alignment: HorizontalAlignment
-    let content: (Data.Element) -> Content
-    @State private var elementsSize: [Data.Element: CGSize] = [:]
-    @State private var availableWidth: CGFloat = 0
-    
-    var body: some View {
-        ZStack(alignment: .leading) {
-            Color.clear
-                .frame(height: 1)
-                .readSize { size in
-                    availableWidth = size.width
-                }
-            
-            VStack(alignment: alignment, spacing: spacing) {
-                ForEach(computeRows(), id: \.self) { rowElements in
-                    HStack(spacing: spacing) {
-                        ForEach(rowElements, id: \.self) { element in
-                            content(element)
-                                .fixedSize()
-                                .readSize { size in
-                                    elementsSize[element] = size
-                                }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func computeRows() -> [[Data.Element]] {
-        var rows: [[Data.Element]] = [[]]
-        var currentRow = 0
-        var remainingWidth = availableWidth
-
-        for element in data {
-            let elementSize = elementsSize[element, default: CGSize(width: availableWidth, height: 1)]
-
-            if remainingWidth - (elementSize.width + spacing) >= 0 {
-                rows[currentRow].append(element)
-            } else {
-                // Start a new row
-                currentRow += 1
-                rows.append([element])
-                remainingWidth = availableWidth
-            }
-
-            remainingWidth = remainingWidth - (elementSize.width + spacing)
-        }
-
-        return rows
     }
 }
 

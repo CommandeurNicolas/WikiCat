@@ -77,6 +77,19 @@ struct CatBreed: Codable, Identifiable {
     let reference_image_id: String?
     let image: CatImage?
     
+    var hasAttributes: Bool {
+        return isExperimental
+        || isHairless
+        || isNatural
+        || isRare
+        || isRex
+        || hasSuppressedTail
+        || hasShortLegs
+        || isHypoallergenic
+    }
+    var hasTemperament: Bool {
+        return temperament == nil ? false : !(temperament!.isEmpty)
+    }
     var isFavorite: Bool = false
     
     private enum CodingKeys: String, CodingKey {
@@ -97,9 +110,9 @@ struct CatBreed: Codable, Identifiable {
         description: "Native to the Greek islands known as the Cyclades in the Aegean Sea, these are natural cats, meaning they developed without humans getting involved in their breeding. As a breed, Aegean Cats are rare, although they are numerous on their home islands. They are generally friendly toward people and can be excellent cats for families with children.",
         life_span: "9 - 12",
         alt_names: "",
-        experimental: 0,
-        hairless: 0,
-        natural: 0,
+        experimental: 1,
+        hairless: 1,
+        natural: 1,
         rare: 0,
         rex: 0,
         suppressed_tail: 0,
