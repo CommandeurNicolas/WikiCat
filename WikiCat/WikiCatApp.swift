@@ -9,12 +9,9 @@ import SwiftUI
 
 @main
 struct WikiCatApp: App {
-    @StateObject private var modelData = ModelData()
-    
     var body: some Scene {
         WindowGroup {
-            HomePage()
-                .environmentObject(modelData)
+            ContentView()
         }
     }
 }

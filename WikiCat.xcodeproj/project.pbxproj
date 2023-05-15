@@ -23,7 +23,25 @@
 		0354CF3A297386FE003CC31A /* WikiCatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF39297386FE003CC31A /* WikiCatTests.swift */; };
 		0354CF44297386FE003CC31A /* WikiCatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF43297386FE003CC31A /* WikiCatUITests.swift */; };
 		0354CF46297386FE003CC31A /* WikiCatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */; };
+		038BD3B329C21A34009D2E13 /* ChipTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038BD3B229C21A34009D2E13 /* ChipTag.swift */; };
+		03C6177529BBE150008EC9FF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6177429BBE150008EC9FF /* Extension.swift */; };
+		03C6177729BBE4BF008EC9FF /* BreedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6177629BBE4BF008EC9FF /* BreedListItem.swift */; };
+		03C6179129BF7781008EC9FF /* Asap-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178929BF7781008EC9FF /* Asap-SemiBold.ttf */; };
+		03C6179229BF7781008EC9FF /* Asap-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178A29BF7781008EC9FF /* Asap-Italic.ttf */; };
+		03C6179329BF7781008EC9FF /* Asap-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178B29BF7781008EC9FF /* Asap-SemiBoldItalic.ttf */; };
+		03C6179429BF7781008EC9FF /* Asap-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178C29BF7781008EC9FF /* Asap-BoldItalic.ttf */; };
+		03C6179529BF7781008EC9FF /* Asap-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178D29BF7781008EC9FF /* Asap-Regular.ttf */; };
+		03C6179629BF7781008EC9FF /* Asap-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178E29BF7781008EC9FF /* Asap-Medium.ttf */; };
+		03C6179729BF7781008EC9FF /* Asap-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178F29BF7781008EC9FF /* Asap-Bold.ttf */; };
+		03C6179829BF7781008EC9FF /* Asap-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6179029BF7781008EC9FF /* Asap-MediumItalic.ttf */; };
+		F60328412A125DEB00605D1F /* CustomTopAppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60328402A125DEB00605D1F /* CustomTopAppBar.swift */; };
 		F64CA95F2A03FFEF0098991E /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64CA95E2A03FFEF0098991E /* IntentProvider.swift */; };
+		F69BE8972A12700800332C33 /* RoundButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE8962A12700800332C33 /* RoundButtons.swift */; };
+		F69BE8992A12710A00332C33 /* ShowMoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE8982A12710A00332C33 /* ShowMoreButton.swift */; };
+		F69BE89B2A12712C00332C33 /* CatBreedImportantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE89A2A12712C00332C33 /* CatBreedImportantDetails.swift */; };
+		F69BE89D2A127A7900332C33 /* BreedTemperamentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE89C2A127A7900332C33 /* BreedTemperamentList.swift */; };
+		F69BE89F2A127AAC00332C33 /* FlexibleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE89E2A127AAC00332C33 /* FlexibleRowView.swift */; };
+		F69BE8A12A12837D00332C33 /* BreedAttributesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE8A02A12837D00332C33 /* BreedAttributesList.swift */; };
 		F6DA8E6B2A0D3D0F00F75EEA /* RandomImageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */; };
 		F6DA8E6D2A0D3D4500F75EEA /* RandomCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */; };
 		F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */; };
@@ -70,7 +88,25 @@
 		0354CF3F297386FE003CC31A /* WikiCatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiCatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0354CF43297386FE003CC31A /* WikiCatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatUITests.swift; sourceTree = "<group>"; };
 		0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		038BD3B229C21A34009D2E13 /* ChipTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipTag.swift; sourceTree = "<group>"; };
+		03C6177429BBE150008EC9FF /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		03C6177629BBE4BF008EC9FF /* BreedListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListItem.swift; sourceTree = "<group>"; };
+		03C6178929BF7781008EC9FF /* Asap-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-SemiBold.ttf"; sourceTree = "<group>"; };
+		03C6178A29BF7781008EC9FF /* Asap-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Italic.ttf"; sourceTree = "<group>"; };
+		03C6178B29BF7781008EC9FF /* Asap-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		03C6178C29BF7781008EC9FF /* Asap-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-BoldItalic.ttf"; sourceTree = "<group>"; };
+		03C6178D29BF7781008EC9FF /* Asap-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Regular.ttf"; sourceTree = "<group>"; };
+		03C6178E29BF7781008EC9FF /* Asap-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Medium.ttf"; sourceTree = "<group>"; };
+		03C6178F29BF7781008EC9FF /* Asap-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Bold.ttf"; sourceTree = "<group>"; };
+		03C6179029BF7781008EC9FF /* Asap-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-MediumItalic.ttf"; sourceTree = "<group>"; };
+		F60328402A125DEB00605D1F /* CustomTopAppBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopAppBar.swift; sourceTree = "<group>"; };
 		F64CA95E2A03FFEF0098991E /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
+		F69BE8962A12700800332C33 /* RoundButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtons.swift; sourceTree = "<group>"; };
+		F69BE8982A12710A00332C33 /* ShowMoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreButton.swift; sourceTree = "<group>"; };
+		F69BE89A2A12712C00332C33 /* CatBreedImportantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedImportantDetails.swift; sourceTree = "<group>"; };
+		F69BE89C2A127A7900332C33 /* BreedTemperamentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTemperamentList.swift; sourceTree = "<group>"; };
+		F69BE89E2A127AAC00332C33 /* FlexibleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleRowView.swift; sourceTree = "<group>"; };
+		F69BE8A02A12837D00332C33 /* BreedAttributesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedAttributesList.swift; sourceTree = "<group>"; };
 		F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageIntent.swift; sourceTree = "<group>"; };
 		F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatBreedIntent.swift; sourceTree = "<group>"; };
 		F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificCatBreedIntent.swift; sourceTree = "<group>"; };
@@ -120,6 +156,15 @@
 				030B5C10297E0D1B0059B084 /* StarRating.swift */,
 				030B5C12297E0D250059B084 /* FavoriteHeart.swift */,
 				030B5C14297E0E160059B084 /* SearchBar.swift */,
+				03C6177629BBE4BF008EC9FF /* BreedListItem.swift */,
+				038BD3B229C21A34009D2E13 /* ChipTag.swift */,
+				F60328402A125DEB00605D1F /* CustomTopAppBar.swift */,
+				F69BE8962A12700800332C33 /* RoundButtons.swift */,
+				F69BE8982A12710A00332C33 /* ShowMoreButton.swift */,
+				F69BE89A2A12712C00332C33 /* CatBreedImportantDetails.swift */,
+				F69BE89E2A127AAC00332C33 /* FlexibleRowView.swift */,
+				F69BE8A02A12837D00332C33 /* BreedAttributesList.swift */,
+				F69BE89C2A127A7900332C33 /* BreedTemperamentList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +193,14 @@
 		0354CF27297386FD003CC31A /* WikiCat */ = {
 			isa = PBXGroup;
 			children = (
+				03C6178F29BF7781008EC9FF /* Asap-Bold.ttf */,
+				03C6178C29BF7781008EC9FF /* Asap-BoldItalic.ttf */,
+				03C6178A29BF7781008EC9FF /* Asap-Italic.ttf */,
+				03C6178E29BF7781008EC9FF /* Asap-Medium.ttf */,
+				03C6179029BF7781008EC9FF /* Asap-MediumItalic.ttf */,
+				03C6178D29BF7781008EC9FF /* Asap-Regular.ttf */,
+				03C6178929BF7781008EC9FF /* Asap-SemiBold.ttf */,
+				03C6178B29BF7781008EC9FF /* Asap-SemiBoldItalic.ttf */,
 				F6DA8E692A0D3CF400F75EEA /* AppIntent */,
 				030B5C06297E0C4C0059B084 /* Model */,
 				030B5C0F297E0CF00059B084 /* View */,
@@ -158,6 +211,7 @@
 				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
 				0354CF2C297386FE003CC31A /* Assets.xcassets */,
 				0354CF2E297386FE003CC31A /* Preview Content */,
+				03C6177429BBE150008EC9FF /* Extension.swift */,
 			);
 			path = WikiCat;
 			sourceTree = "<group>";
@@ -304,8 +358,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C6179129BF7781008EC9FF /* Asap-SemiBold.ttf in Resources */,
+				03C6179529BF7781008EC9FF /* Asap-Regular.ttf in Resources */,
 				0354CF30297386FE003CC31A /* Preview Assets.xcassets in Resources */,
+				03C6179329BF7781008EC9FF /* Asap-SemiBoldItalic.ttf in Resources */,
 				0354CF2D297386FE003CC31A /* Assets.xcassets in Resources */,
+				03C6179429BF7781008EC9FF /* Asap-BoldItalic.ttf in Resources */,
+				03C6179829BF7781008EC9FF /* Asap-MediumItalic.ttf in Resources */,
+				03C6179629BF7781008EC9FF /* Asap-Medium.ttf in Resources */,
+				03C6179229BF7781008EC9FF /* Asap-Italic.ttf in Resources */,
+				03C6179729BF7781008EC9FF /* Asap-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,16 +399,26 @@
 				F6DA8E6B2A0D3D0F00F75EEA /* RandomImageIntent.swift in Sources */,
 				F6DA8E6D2A0D3D4500F75EEA /* RandomCatBreedIntent.swift in Sources */,
 				F6DA8E732A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift in Sources */,
+				F69BE89D2A127A7900332C33 /* BreedTemperamentList.swift in Sources */,
 				030B5C11297E0D1B0059B084 /* StarRating.swift in Sources */,
+				03C6177729BBE4BF008EC9FF /* BreedListItem.swift in Sources */,
+				03C6177529BBE150008EC9FF /* Extension.swift in Sources */,
 				0354CF2B297386FD003CC31A /* ContentView.swift in Sources */,
 				030B5C03297E0C160059B084 /* HomePage.swift in Sources */,
+				F69BE8A12A12837D00332C33 /* BreedAttributesList.swift in Sources */,
 				030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */,
 				030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */,
+				F69BE8972A12700800332C33 /* RoundButtons.swift in Sources */,
+				F69BE89B2A12712C00332C33 /* CatBreedImportantDetails.swift in Sources */,
 				030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */,
+				F69BE89F2A127AAC00332C33 /* FlexibleRowView.swift in Sources */,
+				F60328412A125DEB00605D1F /* CustomTopAppBar.swift in Sources */,
 				F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */,
 				030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */,
 				030B5C15297E0E160059B084 /* SearchBar.swift in Sources */,
+				038BD3B329C21A34009D2E13 /* ChipTag.swift in Sources */,
 				0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */,
+				F69BE8992A12710A00332C33 /* ShowMoreButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
