@@ -39,8 +39,10 @@ struct BreedListItem: View {
                             .truncationMode(.tail)
                         if self.breed.isFavorite {
                             Spacer()
-                            Image(systemName: "heart.fill")
-                                .foregroundColor(.red)
+                            Image("heart.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 16)
                         }
                     }
                     .padding(.vertical, 8)
