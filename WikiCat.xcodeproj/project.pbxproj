@@ -23,12 +23,6 @@
 		0354CF3A297386FE003CC31A /* WikiCatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF39297386FE003CC31A /* WikiCatTests.swift */; };
 		0354CF44297386FE003CC31A /* WikiCatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF43297386FE003CC31A /* WikiCatUITests.swift */; };
 		0354CF46297386FE003CC31A /* WikiCatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */; };
-		F64CA95F2A03FFEF0098991E /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64CA95E2A03FFEF0098991E /* IntentProvider.swift */; };
-		F6DA8E6B2A0D3D0F00F75EEA /* RandomImageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */; };
-		F6DA8E6D2A0D3D4500F75EEA /* RandomCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */; };
-		F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */; };
-		F6DA8E712A0D3D8900F75EEA /* MyIntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */; };
-		F6DA8E732A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */; };
 		038BD3B329C21A34009D2E13 /* ChipTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038BD3B229C21A34009D2E13 /* ChipTag.swift */; };
 		03C6177529BBE150008EC9FF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6177429BBE150008EC9FF /* Extension.swift */; };
 		03C6177729BBE4BF008EC9FF /* BreedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6177629BBE4BF008EC9FF /* BreedListItem.swift */; };
@@ -40,6 +34,13 @@
 		03C6179629BF7781008EC9FF /* Asap-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178E29BF7781008EC9FF /* Asap-Medium.ttf */; };
 		03C6179729BF7781008EC9FF /* Asap-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6178F29BF7781008EC9FF /* Asap-Bold.ttf */; };
 		03C6179829BF7781008EC9FF /* Asap-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C6179029BF7781008EC9FF /* Asap-MediumItalic.ttf */; };
+		F60328412A125DEB00605D1F /* CustomTopAppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60328402A125DEB00605D1F /* CustomTopAppBar.swift */; };
+		F64CA95F2A03FFEF0098991E /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64CA95E2A03FFEF0098991E /* IntentProvider.swift */; };
+		F6DA8E6B2A0D3D0F00F75EEA /* RandomImageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */; };
+		F6DA8E6D2A0D3D4500F75EEA /* RandomCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */; };
+		F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */; };
+		F6DA8E712A0D3D8900F75EEA /* MyIntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */; };
+		F6DA8E732A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,12 +82,6 @@
 		0354CF3F297386FE003CC31A /* WikiCatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiCatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0354CF43297386FE003CC31A /* WikiCatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatUITests.swift; sourceTree = "<group>"; };
 		0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F64CA95E2A03FFEF0098991E /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
-		F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageIntent.swift; sourceTree = "<group>"; };
-		F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatBreedIntent.swift; sourceTree = "<group>"; };
-		F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificCatBreedIntent.swift; sourceTree = "<group>"; };
-		F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIntentError.swift; sourceTree = "<group>"; };
-		F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedDetailsSnippetView.swift; sourceTree = "<group>"; };
 		038BD3B229C21A34009D2E13 /* ChipTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipTag.swift; sourceTree = "<group>"; };
 		03C6177429BBE150008EC9FF /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		03C6177629BBE4BF008EC9FF /* BreedListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListItem.swift; sourceTree = "<group>"; };
@@ -98,6 +93,13 @@
 		03C6178E29BF7781008EC9FF /* Asap-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Medium.ttf"; sourceTree = "<group>"; };
 		03C6178F29BF7781008EC9FF /* Asap-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Bold.ttf"; sourceTree = "<group>"; };
 		03C6179029BF7781008EC9FF /* Asap-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-MediumItalic.ttf"; sourceTree = "<group>"; };
+		F60328402A125DEB00605D1F /* CustomTopAppBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopAppBar.swift; sourceTree = "<group>"; };
+		F64CA95E2A03FFEF0098991E /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
+		F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageIntent.swift; sourceTree = "<group>"; };
+		F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatBreedIntent.swift; sourceTree = "<group>"; };
+		F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificCatBreedIntent.swift; sourceTree = "<group>"; };
+		F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIntentError.swift; sourceTree = "<group>"; };
+		F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedDetailsSnippetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				030B5C14297E0E160059B084 /* SearchBar.swift */,
 				03C6177629BBE4BF008EC9FF /* BreedListItem.swift */,
 				038BD3B229C21A34009D2E13 /* ChipTag.swift */,
+				F60328402A125DEB00605D1F /* CustomTopAppBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,12 +183,10 @@
 				03C6178D29BF7781008EC9FF /* Asap-Regular.ttf */,
 				03C6178929BF7781008EC9FF /* Asap-SemiBold.ttf */,
 				03C6178B29BF7781008EC9FF /* Asap-SemiBoldItalic.ttf */,
-				0354CF2E297386FE003CC31A /* Preview Content */,
 				F6DA8E692A0D3CF400F75EEA /* AppIntent */,
 				030B5C06297E0C4C0059B084 /* Model */,
 				030B5C0F297E0CF00059B084 /* View */,
 				030B5C01297E0BCF0059B084 /* Info.plist */,
-				0354CF2C297386FE003CC31A /* Assets.xcassets */,
 				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
 				0354CF2A297386FD003CC31A /* ContentView.swift */,
 				030B5C02297E0C160059B084 /* HomePage.swift */,
@@ -388,6 +389,7 @@
 				030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */,
 				030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */,
 				030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */,
+				F60328412A125DEB00605D1F /* CustomTopAppBar.swift in Sources */,
 				F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */,
 				030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */,
 				030B5C15297E0E160059B084 /* SearchBar.swift in Sources */,

@@ -120,6 +120,6 @@ struct CatBreed: Codable, Identifiable {
         stranger_friendly: 4,
         vocalisation: 3,
         reference_image_id: "ozEvzdVM-",
-        image: CatImage(id: "ozEvzdVM-", width: 1200, height: 800, url: "https://cdn2.thecatapi.com/images/ozEvzdVM-.jpg")
+        image: CatImage(id: "ozEvzdVM-", url: "https://cdn2.thecatapi.com/images/ozEvzdVM-.jpg", width: 1200, height: 800)
     )
 }

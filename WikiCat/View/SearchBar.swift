@@ -19,6 +19,8 @@ struct SearchBar : View {
                     .foregroundColor(.gray)
                     .padding(.horizontal, 10)
                 TextField("Breed name (ex: Siamese)", text: $searchText)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
                     .padding(.vertical, 10)
                     .onTapGesture {
                         self.isEditing = true

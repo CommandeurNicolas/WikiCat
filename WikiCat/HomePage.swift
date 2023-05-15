@@ -18,7 +18,7 @@ struct HomePage: View {
         if openSearchBar && searchText != "" {
             return self.modelData.breedsList.filter {
                 breed in
-                breed.name.contains(searchText)
+                breed.name.uppercased().contains(searchText.uppercased())
             }
         } else {
             return self.modelData.breedsList.filter {
@@ -31,58 +31,24 @@ struct HomePage: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
+                CustomTopAppBar(
+                    openSearchBar: $openSearchBar,
+                    searchText: $searchText,
+                    showFavoritesOnly: $showFavoritesOnly
+                )
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
                     ForEach(self.filteredBreeds, id: \.id) {
                         breed in
                         BreedListItem(breed: breed)
                     }
                 }
-                .padding()
+                .padding(.horizontal, 16)
+                .padding(.bottom, 32)
             }
-            .navigationTitle("WikiCat")
-            .navigationBarTitleDisplayMode(.large)
             .listStyle(.grouped)
-//            .padding()
-            // TODO: add .refreshable to reload breeds list and/or reload thumbnails
-            .toolbar {
-                if !self.openSearchBar {
-                    ToolbarItemGroup(placement: .navigationBarLeading) {
-                        Button(action: {
-                            self.openSearchBar.toggle()
-                        }) {
-                            Image("search")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 44)
-                                .foregroundColor(Color.ui.primaryColor)
-                        }
-//                        .padding(.vertical, 32)
-                    }
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            self.showFavoritesOnly.toggle()
-                        }) {
-                            Image(self.showFavoritesOnly ? "heart.fill" : "heart")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 44, height: 44)
-                                .foregroundColor(Color.ui.primaryColor)
-                        }
-//                        .padding(.vertical, 32)
-                    }
-                } else {
-                    ToolbarItemGroup(placement: .principal) {
-                        SearchBar(searchText: $searchText, cancelAction: {
-                            self.openSearchBar.toggle()
-                        })
-                        .padding(.top, 10)
-                        .transition(.move(edge: .leading))
-                        .animation(.easeInOut(duration: 3.0), value: self.openSearchBar)
-//                            .padding(.top, -30)
-                    }
-                }
-            }
+            .ignoresSafeArea()
             .background(Color.ui.backgroundColor)
+            // TODO: add .refreshable to reload breeds list and/or reload thumbnails
         }
         .task {
             await self.loadBreeds()
