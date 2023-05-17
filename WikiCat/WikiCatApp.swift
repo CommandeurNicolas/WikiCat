@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct WikiCatApp: App {
-    @StateObject private var modelData = ModelData()
+    @StateObject private var modelData = ModelData.shared
     
     @State var appLoaded: Bool = false
     
