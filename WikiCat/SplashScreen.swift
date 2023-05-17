@@ -35,7 +35,7 @@ struct SplashScreen: View {
     }
     
     private func loadBreeds() async {
-        await self.modelData.fetchBreeds()
+        await HttpRequestManager.shared.fetchBreeds()
     }
 }
 

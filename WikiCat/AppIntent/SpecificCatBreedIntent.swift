@@ -22,20 +22,20 @@ struct SpecificCatBreedIntent: AppIntent {
     
     @MainActor
     func perform() async throws -> some IntentResult & ShowsSnippetView {
-        let modelData = ModelData()
+        let requestManager = HttpRequestManager.shared
         var referenceImage: UIImage? = nil
         
         // Get a random CatBreed
-        await modelData.fetchSpecificBreed(breedName: self.breedName)
+        await requestManager.fetchSpecificBreed(breedName: self.breedName)
         // Wait a second to be sure the breed is retrieved
         try await Task.sleep(nanoseconds: UInt64(1.2 * Double(NSEC_PER_SEC)))
-        guard let catBreed = modelData.specificBreed else {
+        guard let catBreed = ModelData.shared.specificBreed else {
             throw MyIntentError.message("We couldn't retrieve the breed: \(self.breedName) 😿")
         }
         
         // Get a random CatImage and download it
         if catBreed.image != nil, let url = URL(string: catBreed.image!.url) {
-            modelData.downloadImage(from: url) { data, response, error in
+            requestManager.downloadImage(from: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 referenceImage = UIImage(data: data)
             }
@@ -45,7 +45,7 @@ struct SpecificCatBreedIntent: AppIntent {
             // If CatImage is nil in CatBreed check if there is a reference_id
             let url = URL(string: "https://cdn2.thecatapi.com/images/\(catBreed.reference_image_id!).jpg")
             if let url = url {
-                modelData.downloadImage(from: url) { data, response, error in
+                requestManager.downloadImage(from: url) { data, response, error in
                     guard let data = data, error == nil else { return }
                     referenceImage = UIImage(data: data)
                 }

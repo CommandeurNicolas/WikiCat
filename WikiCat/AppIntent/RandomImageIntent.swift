@@ -30,10 +30,10 @@ struct RandomCatImageIntent: AppIntent  {
     
     @MainActor
     func perform() async throws -> some IntentResult & ShowsSnippetView {
-        let modelData = ModelData.shared
+        let requestManager = HttpRequestManager.shared
         var randomImage: UIImage? = nil
         // Get a random CatImage and download it
-        await modelData.getARandomImage() {
+        await requestManager.getARandomImage() {
             data, response, error in
             guard let data = data, error == nil else { return }
             randomImage = UIImage(data: data)
@@ -45,7 +45,7 @@ struct RandomCatImageIntent: AppIntent  {
         guard let randomImage = randomImage else {
             throw MyIntentError.message("We couldn't retrieve an image 😿")
         }
-        modelData.randomCatImage = randomImage
+        ModelData.shared.randomCatImage = randomImage
         
         // Show the image to the user
         return .result(
