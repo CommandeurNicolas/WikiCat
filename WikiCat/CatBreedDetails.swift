@@ -23,7 +23,9 @@ struct CatBreedDetails: View {
                 // Reference image TODO: change to carousel of multiple images
                 // NavBar (Back + favorite buttons)
                 ZStack {
-                    DetailsImage(imgUrl: self.catBreed.image?.url)
+                    if NetworkMonitor.shared.isConnected {
+                        DetailsImage(imgUrl: self.catBreed.image?.url)
+                    }
                     VStack {
                         HStack {
                             RoundBackButton()

@@ -23,7 +23,7 @@ struct BreedListItem: View {
                     }
                 VStack(alignment: .leading, spacing: 0) {
                     // -- MARK: Reference image of the breed
-                    if self.breed.image != nil {
+                    if NetworkMonitor.shared.isConnected && self.breed.image != nil {
                         BreedReferenceAsyncImage(image: self.breed.image)
                             .frame(width: 150, height: 180)
                     }
