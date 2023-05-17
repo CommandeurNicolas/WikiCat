@@ -67,7 +67,7 @@ struct CatBreedDetails: View {
                 .padding(.vertical, 16)
                 
                 // Description
-                Text(catBreed.description)
+                Text(catBreed.breedDescription)
                     .font(.custom("Asap-Regular", size: 12))
                     .foregroundColor(Color.ui.neutralVariantColor)
                 
