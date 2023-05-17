@@ -14,7 +14,6 @@
 		030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C0B297E0C760059B084 /* CatWeight.swift */; };
 		030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C0D297E0CE30059B084 /* ModelData.swift */; };
 		030B5C11297E0D1B0059B084 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C10297E0D1B0059B084 /* StarRating.swift */; };
-		030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C12297E0D250059B084 /* FavoriteHeart.swift */; };
 		030B5C15297E0E160059B084 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B5C14297E0E160059B084 /* SearchBar.swift */; };
 		0354CF29297386FD003CC31A /* WikiCatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF28297386FD003CC31A /* WikiCatApp.swift */; };
 		0354CF2B297386FD003CC31A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354CF2A297386FD003CC31A /* ContentView.swift */; };
@@ -82,7 +81,6 @@
 		030B5C0B297E0C760059B084 /* CatWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatWeight.swift; sourceTree = "<group>"; };
 		030B5C0D297E0CE30059B084 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		030B5C10297E0D1B0059B084 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
-		030B5C12297E0D250059B084 /* FavoriteHeart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHeart.swift; sourceTree = "<group>"; };
 		030B5C14297E0E160059B084 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0354CF25297386FD003CC31A /* WikiCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0354CF28297386FD003CC31A /* WikiCatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiCatApp.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				030B5C10297E0D1B0059B084 /* StarRating.swift */,
-				030B5C12297E0D250059B084 /* FavoriteHeart.swift */,
 				030B5C14297E0E160059B084 /* SearchBar.swift */,
 				03C6177629BBE4BF008EC9FF /* BreedListItem.swift */,
 				038BD3B229C21A34009D2E13 /* ChipTag.swift */,
@@ -440,7 +437,6 @@
 				F69BE89F2A127AAC00332C33 /* FlexibleRowView.swift in Sources */,
 				F60328412A125DEB00605D1F /* CustomTopAppBar.swift in Sources */,
 				F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */,
-				030B5C13297E0D250059B084 /* FavoriteHeart.swift in Sources */,
 				030B5C15297E0E160059B084 /* SearchBar.swift in Sources */,
 				038BD3B329C21A34009D2E13 /* ChipTag.swift in Sources */,
 				F6B404BA2A15160800D137A2 /* HttpRequestManager.swift in Sources */,

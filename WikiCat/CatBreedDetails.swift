@@ -23,7 +23,7 @@ struct CatBreedDetails: View {
                 // Reference image TODO: change to carousel of multiple images
                 // NavBar (Back + favorite buttons)
                 ZStack {
-                    if NetworkMonitor.shared.isConnected {
+                    if NetworkMonitor.shared.isConnected && self.catBreed.image != nil {
                         DetailsImage(imgUrl: self.catBreed.image?.url)
                     }
                     VStack {

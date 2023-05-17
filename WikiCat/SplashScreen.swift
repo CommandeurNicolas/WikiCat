@@ -28,7 +28,7 @@ struct SplashScreen: View {
         .task {
             await self.loadBreeds()
             print("breeds loaded")
-            withAnimation(.easeIn(duration: 1)) {
+            withAnimation(.easeIn(duration: 0.5)) {
                 self.loaded = true
             }
         }
