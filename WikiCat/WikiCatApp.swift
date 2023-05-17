@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct WikiCatApp: App {
+    @StateObject private var modelData = ModelData()
+    
+    @State var appLoaded: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if appLoaded {
+                HomePage()
+                    .environmentObject(modelData)
+            } else {
+                SplashScreen(loaded: $appLoaded)
+                    .environmentObject(modelData)
+            }
         }
     }
 }

@@ -42,6 +42,7 @@
 		F69BE89D2A127A7900332C33 /* BreedTemperamentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE89C2A127A7900332C33 /* BreedTemperamentList.swift */; };
 		F69BE89F2A127AAC00332C33 /* FlexibleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE89E2A127AAC00332C33 /* FlexibleRowView.swift */; };
 		F69BE8A12A12837D00332C33 /* BreedAttributesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE8A02A12837D00332C33 /* BreedAttributesList.swift */; };
+		F69BE8B52A14D98600332C33 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69BE8B42A14D98600332C33 /* SplashScreen.swift */; };
 		F6DA8E6B2A0D3D0F00F75EEA /* RandomImageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */; };
 		F6DA8E6D2A0D3D4500F75EEA /* RandomCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */; };
 		F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */; };
@@ -107,6 +108,7 @@
 		F69BE89C2A127A7900332C33 /* BreedTemperamentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTemperamentList.swift; sourceTree = "<group>"; };
 		F69BE89E2A127AAC00332C33 /* FlexibleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleRowView.swift; sourceTree = "<group>"; };
 		F69BE8A02A12837D00332C33 /* BreedAttributesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedAttributesList.swift; sourceTree = "<group>"; };
+		F69BE8B42A14D98600332C33 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageIntent.swift; sourceTree = "<group>"; };
 		F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatBreedIntent.swift; sourceTree = "<group>"; };
 		F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificCatBreedIntent.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				030B5C0F297E0CF00059B084 /* View */,
 				030B5C01297E0BCF0059B084 /* Info.plist */,
 				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
+				F69BE8B42A14D98600332C33 /* SplashScreen.swift */,
 				0354CF2A297386FD003CC31A /* ContentView.swift */,
 				030B5C02297E0C160059B084 /* HomePage.swift */,
 				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
@@ -408,6 +411,7 @@
 				F69BE8A12A12837D00332C33 /* BreedAttributesList.swift in Sources */,
 				030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */,
 				030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */,
+				F69BE8B52A14D98600332C33 /* SplashScreen.swift in Sources */,
 				F69BE8972A12700800332C33 /* RoundButtons.swift in Sources */,
 				F69BE89B2A12712C00332C33 /* CatBreedImportantDetails.swift in Sources */,
 				030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */,
