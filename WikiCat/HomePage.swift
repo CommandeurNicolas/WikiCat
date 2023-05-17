@@ -50,14 +50,9 @@ struct HomePage: View {
             .background(Color.ui.backgroundColor)
             // TODO: add .refreshable to reload breeds list and/or reload thumbnails
         }
-        .task {
-            await self.loadBreeds()
-        }
     }
     
-    private func loadBreeds() async {
-        await self.modelData.fetchBreeds()
-    }
+    
 }
 
 struct HomePage_Previews: PreviewProvider {
