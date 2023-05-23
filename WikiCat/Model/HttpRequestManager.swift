@@ -15,6 +15,8 @@ final class HttpRequestManager: ObservableObject {
     
     private final let base_url = "https://api.thecatapi.com/v1/"
     
+    @Published var apiBreedList: [CatBreed] = []
+    
     // Fetch a single specific breed
     func fetchSpecificBreed(breedName: String) async {
         var fullName = breedName
@@ -83,7 +85,7 @@ final class HttpRequestManager: ObservableObject {
             guard (response as? HTTPURLResponse)?.statusCode == 200 else { return }
             let result = try JSONDecoder().decode([CatBreed].self, from: data)
             DispatchQueue.main.async {
-                ModelData.shared.breedsList = result
+                self.apiBreedList = result
             }
         } catch let DecodingError.dataCorrupted(context) {
             print(context)

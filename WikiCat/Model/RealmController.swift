@@ -10,34 +10,41 @@ import RealmSwift
 
 struct RealmController {
     static let shared = RealmController()
-    private let realm = try! Realm()
     
     func fetchCatBreed() -> [CatBreed] {
-        print("fetchCatBreed")
+        let realm = try! Realm()
         return Array(realm.objects(CatBreed.self))
     }
     
     // Compare with local storage and update/create if necessary
     func saveApiCatBreeds(_ apiBreeds: [CatBreed]) {
-        print("saveApiCatBreeds")
-        self.realm.writeAsync {
-            apiBreeds.forEach { breed in
-                self.realm.add(breed)
+        let realm = try! Realm()
+        let localBreeds = fetchCatBreed()
+        try! realm.write {
+            apiBreeds.forEach { apiBreed in
+                let sameLocalBreedAsAPI = localBreeds.first(where: { localBreed in
+                    localBreed == apiBreed
+                })
+                if sameLocalBreedAsAPI == nil {
+                    realm.add(apiBreed)
+                }
             }
         }
     }
     
     func saveCatBreed(_ catBreed: CatBreed) {
+        let realm = try! Realm()
         print("saveCatBreed")
-        self.realm.writeAsync {
+        realm.writeAsync {
             // TODO: add modified field ???
-            self.realm.add(catBreed)
+            realm.add(catBreed)
         }
     }
     
     func clear() {
-        self.realm.writeAsync {
-            self.realm.deleteAll()
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
         }
     }
     

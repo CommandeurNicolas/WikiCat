@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct BreedListItem: View {
-    let breed: CatBreed!
+    @ObservedRealmObject var breed: CatBreed
+    
+    var homePageShowFavoriteOnly: Bool
     
     var body: some View {
         NavigationLink {
-            CatBreedDetails(catBreed: self.breed)
+            CatBreedDetails(catBreed: self.breed, homePageShowFavoriteOnly: self.homePageShowFavoriteOnly)
         } label: {
             ZStack {
                 Color.white
@@ -96,7 +99,7 @@ struct BreedReferenceAsyncImage: View {
 
 struct BreedListItem_Previews: PreviewProvider {
     static var previews: some View {
-        BreedListItem(breed: CatBreed.test)
+        BreedListItem(breed: CatBreed.test, homePageShowFavoriteOnly: false)
             .previewLayout(.sizeThatFits)
     }
 }

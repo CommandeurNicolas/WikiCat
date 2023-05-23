@@ -6,14 +6,11 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct CatBreedDetails: View {
-    @EnvironmentObject var modelData: ModelData
-    let catBreed: CatBreed
-    
-    var breedIndex: Int {
-        modelData.breedsList.firstIndex(where: {$0.id == catBreed.id})!
-    }
+    @ObservedRealmObject var catBreed: CatBreed
+    var homePageShowFavoriteOnly: Bool
     
     @State var showMore: Bool = false
     
@@ -30,7 +27,7 @@ struct CatBreedDetails: View {
                         HStack {
                             RoundBackButton()
                             Spacer()
-                            RoundLikeButton(isFavorite: $modelData.breedsList[self.breedIndex].isFavorite)
+                            RoundLikeButton(isFavorite: $catBreed.isFavorite, homePageShowFavoriteOnly: self.homePageShowFavoriteOnly)
                         }
                         .padding(15)
                         Spacer()
@@ -171,7 +168,7 @@ struct DetailsImage: View {
 
 struct CatBreedDetails_Previews: PreviewProvider {
     static var previews: some View {
-        CatBreedDetails(catBreed: CatBreed.test)
+        CatBreedDetails(catBreed: CatBreed.test, homePageShowFavoriteOnly: false)
             .environmentObject(ModelData())
     }
 }

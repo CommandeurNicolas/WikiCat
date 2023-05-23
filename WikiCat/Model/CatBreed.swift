@@ -222,6 +222,15 @@ class CatBreed: Object, Identifiable, Codable {
         case id, weight, name, cfa_url, vetstreet_url, vcahospitals_url, wikipedia_url, temperament, origin, country_code, life_span, alt_names, experimental, hairless, natural, rare, rex, suppressed_tail, short_legs, hypoallergenic, indoor, lap, adaptability, affection_level, child_friendly, dog_friendly, energy_level, grooming, health_issues, intelligence, shedding_level, social_needs, stranger_friendly, vocalisation, reference_image_id, image
     }
     
+    // MARK: overriding default Equatable behaviour
+    public override func isEqual(_ object: Any?) -> Bool {
+        guard object is CatBreed, let catBreed = object as? CatBreed else {
+            return false
+        }
+        // TODO: add other fields ???
+        return self.id == catBreed.id
+    }
+    
     // -- MARK: test object
     static let test: CatBreed = CatBreed(
         id: "aege",
