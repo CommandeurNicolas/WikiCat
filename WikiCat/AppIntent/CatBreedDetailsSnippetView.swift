@@ -48,7 +48,7 @@ struct CatBreedDetailsSnippetView: View {
                 Text("More infos")
                     .font(.title2)
                     .padding(.bottom, 10)
-                Text(self.catBreed.description)
+                Text(self.catBreed.breedDescription)
                     .frame(maxHeight: .infinity)
                 
                 // MARK: Breed characteristics

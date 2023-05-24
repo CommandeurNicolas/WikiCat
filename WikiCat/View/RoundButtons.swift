@@ -29,11 +29,18 @@ struct RoundBackButton: View {
     }
 }
 struct RoundLikeButton: View {
+    @Environment(\.dismiss) private var dismiss
+    
     @Binding var isFavorite: Bool
+    
+    var homePageShowFavoriteOnly: Bool
     
     var body: some View {
         Button {
             self.isFavorite.toggle()
+            if homePageShowFavoriteOnly {
+                self.dismiss()
+            }
         } label: {
             ZStack {
                 if self.isFavorite {
@@ -61,8 +68,8 @@ struct RoundButtons_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             RoundBackButton()
-            RoundLikeButton(isFavorite: .constant(false))
-            RoundLikeButton(isFavorite: .constant(true))
+            RoundLikeButton(isFavorite: .constant(false), homePageShowFavoriteOnly: false)
+            RoundLikeButton(isFavorite: .constant(true), homePageShowFavoriteOnly: false)
         }
         .previewLayout(.sizeThatFits)
     }

@@ -8,46 +8,93 @@
 import SwiftUI
 
 struct SplashScreen: View {
-    @EnvironmentObject var modelData: ModelData
     @Binding var loaded: Bool
     
-    @State private var progress = 0.0
+    @State var progressViewLabel: String = "Fetching cat breeds informations ..."
+    
+    @State private var presentAlertError: Bool = false
     
     var body: some View {
         VStack(spacing: 32) {
+            // App title
             Text("WikiCat")
                 .font(.custom("Asap-SemiBold", size: 72))
-            ProgressView(value: progress)
-                .progressViewStyle(GaugeProgressStyle())
-                .frame(width: 50, height: 50)
+                .foregroundColor(Color.ui.primaryColor)
+            // Separator
+            Divider()
+                .frame(width: 100, height: 4)
+                .overlay {
+                    Capsule()
+                        .fill(Color.ui.secondaryColor)
+                }
+            // Progress view
+            VStack {
+                Text(progressViewLabel)
+                    .font(.custom("Asap-Italic", size: 16))
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color.ui.secondaryColor)
+                ProgressView()
+                    .tint(Color.ui.secondaryColor)
+            }
+            .padding(.horizontal, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.ui.backgroundColor)
-        .foregroundColor(Color.ui.primaryColor)
         .padding(.horizontal, 16)
         .task {
             await self.loadBreeds()
-            print("breeds loaded")
-            withAnimation(.easeIn(duration: 1)) {
-                self.loaded = true
-            }
+        }
+        .alert(isPresented: $presentAlertError) {
+            Alert(
+                title: Text("An error occured while fetching cat breeds"),
+                message: Text("Please check your network connectivity before retrying !"),
+                primaryButton: .default(Text("Retry")) {
+                    Task {
+                        await self.loadBreeds()
+                    }
+                },
+                secondaryButton: .destructive(Text("Quit")) {
+                    self.progressViewLabel = "Closing WikiCat ..."
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        exit(0)
+                    }
+                }
+            )
         }
     }
     
     private func loadBreeds() async {
-        await self.modelData.fetchBreeds()
-    }
-}
-
-struct GaugeProgressStyle: ProgressViewStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        let fractionCompleted = configuration.fractionCompleted ?? 0
-
-        return ZStack {
-            Circle()
-                .trim(from: 0, to: fractionCompleted)
-                .stroke(Color.ui.secondaryColor, style: StrokeStyle(lineWidth: 6, lineCap: .round))
-                .rotationEffect(.degrees(-90))
+        // Fetch api breeds
+        let httpRequestManager = HttpRequestManager.shared
+        await httpRequestManager.fetchBreeds()
+        
+        if !httpRequestManager.apiBreedList.isEmpty {
+            // Update progress view label
+            self.progressViewLabel = "Update local storage's informations ..."
+            // Save api breeds to local storage
+            RealmController.shared.saveApiCatBreeds(httpRequestManager.apiBreedList)
+            // Load home page
+            withAnimation(.easeIn(duration: 0.5)) {
+                self.loaded = true
+            }
+        } else {
+            // Nothing found on API
+            // Update progress view label
+            self.progressViewLabel = "Fetching local informations ..."
+            // Fetch local storage
+            let localBreeds = RealmController.shared.fetchCatBreed()
+            if localBreeds.isEmpty {
+                // Local storage empty so prevent user that app will close
+                // TODO: show alert
+                self.presentAlertError = true
+                return
+            } else {
+                // Load home page
+                withAnimation(.easeIn(duration: 0.5)) {
+                    self.loaded = true
+                }
+            }
         }
     }
 }

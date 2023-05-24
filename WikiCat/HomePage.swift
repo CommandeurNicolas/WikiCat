@@ -6,22 +6,28 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct HomePage: View {
-    @EnvironmentObject var modelData: ModelData
+    @ObservedResults(CatBreed.self) var localCatBreeds
+    
     @State private var showFavoritesOnly: Bool = false
     
     @State private var openSearchBar: Bool = false
     @State var searchText: String = ""
     
+    private var catBreeds: [CatBreed] {
+        return Array(localCatBreeds)
+    }
+    
     var filteredBreeds: [CatBreed] {
         if openSearchBar && searchText != "" {
-            return self.modelData.breedsList.filter {
+            return catBreeds.filter {
                 breed in
                 breed.name.uppercased().contains(searchText.uppercased())
             }
         } else {
-            return self.modelData.breedsList.filter {
+            return self.catBreeds.filter {
                 breed in
                 (!self.showFavoritesOnly || breed.isFavorite)
             }
@@ -39,7 +45,7 @@ struct HomePage: View {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
                     ForEach(self.filteredBreeds, id: \.id) {
                         breed in
-                        BreedListItem(breed: breed)
+                        BreedListItem(breed: breed, homePageShowFavoriteOnly: self.showFavoritesOnly)
                     }
                 }
                 .padding(.horizontal, 16)
@@ -51,8 +57,6 @@ struct HomePage: View {
             // TODO: add .refreshable to reload breeds list and/or reload thumbnails
         }
     }
-    
-    
 }
 
 struct HomePage_Previews: PreviewProvider {

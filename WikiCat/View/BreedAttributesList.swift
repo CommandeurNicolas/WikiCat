@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BreedAttributesList: View {
-    let breed: CatBreed!
+    let breed: CatBreed
     let withCountry: Bool
     let chipSize: ChipTagSize
     let chipColor: Color

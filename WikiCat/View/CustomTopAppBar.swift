@@ -49,10 +49,9 @@ struct CustomTopAppBar: View {
              *      1- Slide between icons ?
              *      2- Disappear ?
              */
-//            if !self.openSearchBar {
-                Text("WikiCat")
-                    .font(.custom("Asap-SemiBold", size: 48))
-//            }
+            Text("WikiCat")
+                .font(.custom("Asap-SemiBold", size: 48))
+                .foregroundColor(Color.ui.neutralColor)
         }
         .padding(.top, 50)
         .padding(.horizontal, 24)
