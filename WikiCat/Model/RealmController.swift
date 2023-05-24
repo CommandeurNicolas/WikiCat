@@ -32,15 +32,6 @@ struct RealmController {
         }
     }
     
-    func saveCatBreed(_ catBreed: CatBreed) {
-        let realm = try! Realm()
-        print("saveCatBreed")
-        realm.writeAsync {
-            // TODO: add modified field ???
-            realm.add(catBreed)
-        }
-    }
-    
     func clear() {
         let realm = try! Realm()
         try! realm.write {
