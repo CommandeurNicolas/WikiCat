@@ -26,7 +26,7 @@ struct RandomCatBreedIntent: AppIntent {
         await requestManager.fetchBreeds()
         // Wait a second to be sure the breed is retrieved
         try await Task.sleep(nanoseconds: UInt64(1.2 * Double(NSEC_PER_SEC)))
-        guard let catBreed = ModelData.shared.breedsList.randomElement() else {
+        guard let catBreed = requestManager.apiBreedList.randomElement() else {
             throw MyIntentError.message("We couldn't retrieve a random breed 😿")
         }
         
