@@ -6,19 +6,15 @@
 //
 
 import SwiftUI
-import RealmSwift
+import SwiftData
 
 struct HomePage: View {
-    @ObservedResults(CatBreed.self) var localCatBreeds
-    
     @State private var showFavoritesOnly: Bool = false
     
     @State private var openSearchBar: Bool = false
     @State var searchText: String = ""
     
-    private var catBreeds: [CatBreed] {
-        return Array(localCatBreeds)
-    }
+    @Query(sort: \CatBreed.name, order: .forward) private var catBreeds: [CatBreed]
     
     var filteredBreeds: [CatBreed] {
         if openSearchBar && searchText != "" {
@@ -42,9 +38,9 @@ struct HomePage: View {
                     searchText: $searchText,
                     showFavoritesOnly: $showFavoritesOnly
                 )
+                // TODO: try list
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
-                    ForEach(self.filteredBreeds, id: \.id) {
-                        breed in
+                    ForEach(self.filteredBreeds, id: \.id) { breed in
                         BreedListItem(breed: breed, homePageShowFavoriteOnly: self.showFavoritesOnly)
                     }
                 }

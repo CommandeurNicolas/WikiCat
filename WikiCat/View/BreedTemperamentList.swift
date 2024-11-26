@@ -35,6 +35,6 @@ struct BreedTemperamentList: View {
 
 struct BreedTemperamentList_Previews: PreviewProvider {
     static var previews: some View {
-        BreedTemperamentList(temperament: CatBreed.test.temperament!, chipSize: .large)
+        BreedTemperamentList(temperament: CatBreed.test.temperament, chipSize: .large)
     }
 }

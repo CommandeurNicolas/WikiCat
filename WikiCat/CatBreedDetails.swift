@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
-import RealmSwift
+import SwiftData
 
 struct CatBreedDetails: View {
-    @ObservedRealmObject var catBreed: CatBreed
+    let catBreed: CatBreed
     var homePageShowFavoriteOnly: Bool
+    
+    @Binding var isFavorite: Bool
     
     @State var showMore: Bool = false
     
@@ -27,7 +29,7 @@ struct CatBreedDetails: View {
                         HStack {
                             RoundBackButton()
                             Spacer()
-                            RoundLikeButton(isFavorite: $catBreed.isFavorite, homePageShowFavoriteOnly: self.homePageShowFavoriteOnly)
+                            RoundLikeButton(catBreedId: self.catBreed.id, homePageShowFavoriteOnly: self.homePageShowFavoriteOnly, isFavorite: $isFavorite)
                         }
                         .padding(15)
                         Spacer()
@@ -44,7 +46,7 @@ struct CatBreedDetails: View {
                 
                 // Country
                 HStack {
-                    Text(self.catBreed.country_code.flag())
+                    Text(self.catBreed.countryCode.flag())
                     Text(self.catBreed.origin)
                         .font(.custom("Asap-Regular", size: 16))
                         .foregroundColor(Color.ui.neutralColor)
@@ -56,15 +58,15 @@ struct CatBreedDetails: View {
                 // Important details (life span and weight)
                 HStack(alignment: .center) {
                     Spacer()
-                    CatBreedImportantDetails(title: "Life span", description: "\(catBreed.life_span!) Years")
+                    CatBreedImportantDetails(title: "Life span", description: "\(catBreed.lifeSpan) Years")
                     Spacer()
-                    CatBreedImportantDetails(title: "Weight", description: "\(catBreed.weight!.metric) Kg")
+                    CatBreedImportantDetails(title: "Weight", description: "\(catBreed.weight.metric) Kg")
                     Spacer()
                 }
                 .padding(.vertical, 16)
                 
                 // Description
-                Text(catBreed.breedDescription)
+                Text(catBreed.catDescription)
                     .font(.custom("Asap-Regular", size: 12))
                     .foregroundColor(Color.ui.neutralVariantColor)
                 
@@ -86,31 +88,28 @@ struct CatBreedDetails: View {
                     }
                     
                     // Temperament chips
-                    if self.catBreed.hasTemperament {
-                        Text("Temperament")
-                            .font(.custom("Asap-SemiBold", size: 24))
-                            .padding(.top, 16)
-                        BreedTemperamentList(
-                            temperament: self.catBreed.temperament!,
-                            chipSize: .large
-                        )
-                        .padding(.top, 8)
-                        .padding(.bottom, 16)
-                    }
-                    
+                    Text("Temperament")
+                        .font(.custom("Asap-SemiBold", size: 24))
+                        .padding(.top, 16)
+                    BreedTemperamentList(
+                        temperament: self.catBreed.temperament,
+                        chipSize: .large
+                    )
+                    .padding(.top, 8)
+                    .padding(.bottom, 16)
                     
                     // Characteristics rating
                     Text("Characteristics rating")
                         .font(.custom("Asap-SemiBold", size: 24))
                         .padding(.top, 8)
                     Group {
-                        StarRatingDetailField(ratingName: "Affection level", rating: self.catBreed.affection_level)
+                        StarRatingDetailField(ratingName: "Affection level", rating: self.catBreed.affectionLevel)
                         StarRatingDetailField(ratingName: "Lap cat", rating: self.catBreed.lap)
-                        StarRatingDetailField(ratingName: "Child friendly", rating: self.catBreed.child_friendly)
-                        StarRatingDetailField(ratingName: "Dog friendly", rating: self.catBreed.dog_friendly)
-                        StarRatingDetailField(ratingName: "Energy level", rating: self.catBreed.energy_level)
-                        StarRatingDetailField(ratingName: "Health issues", rating: self.catBreed.health_issues)
-                        StarRatingDetailField(ratingName: "Social needs", rating: self.catBreed.social_needs)
+                        StarRatingDetailField(ratingName: "Child friendly", rating: self.catBreed.childFriendly)
+                        StarRatingDetailField(ratingName: "Dog friendly", rating: self.catBreed.dogFriendly)
+                        StarRatingDetailField(ratingName: "Energy level", rating: self.catBreed.energyLevel)
+                        StarRatingDetailField(ratingName: "Health issues", rating: self.catBreed.healthIssues)
+                        StarRatingDetailField(ratingName: "Social needs", rating: self.catBreed.socialNeeds)
                     }
                 }
                 // Show more button
@@ -129,7 +128,6 @@ struct CatBreedDetails: View {
         .background(Color.ui.backgroundColor)
     }
 }
-
 
 struct DetailsImage: View {
     let imgUrl: String!
@@ -166,9 +164,9 @@ struct DetailsImage: View {
     }
 }
 
-struct CatBreedDetails_Previews: PreviewProvider {
-    static var previews: some View {
-        CatBreedDetails(catBreed: CatBreed.test, homePageShowFavoriteOnly: false)
-            .environmentObject(ModelData())
-    }
-}
+//struct CatBreedDetails_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CatBreedDetails(catBreed: CatBreed.test, homePageShowFavoriteOnly: false)
+//            .environmentObject(ModelData())
+//    }
+//}

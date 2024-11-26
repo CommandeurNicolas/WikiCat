@@ -63,38 +63,50 @@ struct SplashScreen: View {
             )
         }
     }
-    
+
     private func loadBreeds() async {
-        // Fetch api breeds
-        let httpRequestManager = HttpRequestManager.shared
-        await httpRequestManager.fetchBreeds()
-        
-        if !httpRequestManager.apiBreedList.isEmpty {
+        guard let url = URL(string: HttpRequestManager.shared.base_url + "breeds") else {
+            print("Invalid URL")
+            return
+        }
+        guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String else {
+            print("Retrieving API KEY failed")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
+
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+            let result = try JSONDecoder().decode([CatBreed].self, from: data)
+            
+            // Save api breeds to local storage
+            let dataRepository = DataRepository.shared
             // Update progress view label
             self.progressViewLabel = "Update local storage's informations ..."
-            // Save api breeds to local storage
-            RealmController.shared.saveApiCatBreeds(httpRequestManager.apiBreedList)
-            // Load home page
-            withAnimation(.easeIn(duration: 0.5)) {
-                self.loaded = true
+            if (await dataRepository.isDatabaseEmpty()) {
+                await dataRepository.insert(catBreeds: result)
+            } else {
+                await dataRepository.updateIfNeeded(apiCatBreeds: result)
             }
-        } else {
-            // Nothing found on API
+            
             // Update progress view label
             self.progressViewLabel = "Fetching local informations ..."
-            // Fetch local storage
-            let localBreeds = RealmController.shared.fetchCatBreed()
-            if localBreeds.isEmpty {
-                // Local storage empty so prevent user that app will close
-                // TODO: show alert
+            // Show error if no cat breed found in database
+            if (await dataRepository.isDatabaseEmpty()) {
                 self.presentAlertError = true
-                return
             } else {
-                // Load home page
+                // ELSE load home page
                 withAnimation(.easeIn(duration: 0.5)) {
                     self.loaded = true
                 }
             }
+        } catch {
+            print("error \(error.localizedDescription)")
+            self.presentAlertError = true
         }
     }
 }

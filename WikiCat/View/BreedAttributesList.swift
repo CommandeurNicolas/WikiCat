@@ -38,7 +38,7 @@ struct BreedAttributesList: View {
         .onAppear {
             attributesList.removeAll()
             if withCountry {
-                let countryFlag = breed.country_code.flag()
+                let countryFlag = breed.countryCode.flag()
                 var countryName = ""
                 switch(breed.origin) {
                 case "United State":

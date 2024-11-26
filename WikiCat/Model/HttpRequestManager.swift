@@ -13,7 +13,7 @@ final class HttpRequestManager: ObservableObject {
     // Shared instance of my model data (use it everywhere you need to access ModelData)
     static let shared: HttpRequestManager = HttpRequestManager()
     
-    private final let base_url = "https://api.thecatapi.com/v1/"
+    final let base_url = "https://api.thecatapi.com/v1/"
     
     @Published var apiBreedList: [CatBreed] = []
     

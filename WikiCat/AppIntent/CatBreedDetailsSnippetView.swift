@@ -33,11 +33,11 @@ struct CatBreedDetailsSnippetView: View {
                 HStack {
                     Text("Lifespan -")
                         .bold()
-                    Text("\(self.catBreed.life_span ?? "? - ?") years")
+                    Text("\(self.catBreed.lifeSpan) years")
                     Spacer()
                     Text("Weigth -")
                         .bold()
-                    Text("\(self.catBreed.weight?.metric ?? "? - ?") Kg")
+                    Text("\(self.catBreed.weight.metric) Kg")
                 }
                 .font(.subheadline)
                 
@@ -48,7 +48,7 @@ struct CatBreedDetailsSnippetView: View {
                 Text("More infos")
                     .font(.title2)
                     .padding(.bottom, 10)
-                Text(self.catBreed.breedDescription)
+                Text(self.catBreed.catDescription)
                     .frame(maxHeight: .infinity)
                 
                 // MARK: Breed characteristics
@@ -59,13 +59,13 @@ struct CatBreedDetailsSnippetView: View {
                 Text("Breed characteristics")
                     .font(.title2)
                 Group {
-                    StarRatingDetailField(ratingName: "Affection level", rating: self.catBreed.affection_level)
+                    StarRatingDetailField(ratingName: "Affection level", rating: self.catBreed.affectionLevel)
                     StarRatingDetailField(ratingName: "Lap cat", rating: self.catBreed.lap)
-                    StarRatingDetailField(ratingName: "Child friendly", rating: self.catBreed.child_friendly)
-                    StarRatingDetailField(ratingName: "Dog friendly", rating: self.catBreed.dog_friendly)
-                    StarRatingDetailField(ratingName: "Energy level", rating: self.catBreed.energy_level)
-                    StarRatingDetailField(ratingName: "Health issues", rating: self.catBreed.health_issues)
-                    StarRatingDetailField(ratingName: "Social needs", rating: self.catBreed.social_needs)
+                    StarRatingDetailField(ratingName: "Child friendly", rating: self.catBreed.childFriendly)
+                    StarRatingDetailField(ratingName: "Dog friendly", rating: self.catBreed.dogFriendly)
+                    StarRatingDetailField(ratingName: "Energy level", rating: self.catBreed.energyLevel)
+                    StarRatingDetailField(ratingName: "Health issues", rating: self.catBreed.healthIssues)
+                    StarRatingDetailField(ratingName: "Social needs", rating: self.catBreed.socialNeeds)
                 }
                 .padding(.vertical, 5)
                 .padding(.horizontal, 5)

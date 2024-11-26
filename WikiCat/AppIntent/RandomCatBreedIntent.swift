@@ -38,9 +38,9 @@ struct RandomCatBreedIntent: AppIntent {
             }
             // Need to wait for the image to finish to download (didn't find any other working solution)
             try await Task.sleep(nanoseconds: UInt64(1.2 * Double(NSEC_PER_SEC)))
-        } else if catBreed.reference_image_id != nil {
+        } else if catBreed.referenceImageID != nil {
             // If CatImage is nil in CatBreed check if there is a reference_id
-            let url = URL(string: "https://cdn2.thecatapi.com/images/\(catBreed.reference_image_id!).jpg")
+            let url = URL(string: "https://cdn2.thecatapi.com/images/\(catBreed.referenceImageID!).jpg")
             if let url = url {
                 requestManager.downloadImage(from: url) { data, response, error in
                     guard let data = data, error == nil else { return }

@@ -19,5 +19,6 @@ struct WikiCatApp: App {
                 SplashScreen(loaded: $appLoaded)
             }
         }
+        .modelContainer(DataRepository.shared.modelContainer)
     }
 }

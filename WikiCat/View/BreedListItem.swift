@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
-import RealmSwift
+import SwiftData
 
 struct BreedListItem: View {
-    @ObservedRealmObject var breed: CatBreed
-    
+    var breed: CatBreed
     var homePageShowFavoriteOnly: Bool
+    
+    @State var viewModel: BreedViewModel
+    
+    init(breed: CatBreed, homePageShowFavoriteOnly: Bool) {
+        self.breed = breed
+        self.homePageShowFavoriteOnly = homePageShowFavoriteOnly
+        self.viewModel = BreedViewModel(catBreed: breed)
+        _viewModel = State(initialValue: viewModel)
+    }
     
     var body: some View {
         NavigationLink {
-            CatBreedDetails(catBreed: self.breed, homePageShowFavoriteOnly: self.homePageShowFavoriteOnly)
+            CatBreedDetails(catBreed: self.breed, homePageShowFavoriteOnly: self.homePageShowFavoriteOnly, isFavorite: $viewModel.isFavorite)
         } label: {
             ZStack {
                 Color.white
@@ -38,7 +46,7 @@ struct BreedListItem: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(2)
                             .truncationMode(.tail)
-                        if self.breed.isFavorite {
+                        if self.viewModel.isFavorite {
                             Spacer()
                             Image("heart.fill")
                                 .resizable()

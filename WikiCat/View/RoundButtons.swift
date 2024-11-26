@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RoundBackButton: View {
     @Environment(\.dismiss) private var dismiss
@@ -21,9 +22,9 @@ struct RoundBackButton: View {
         }
         .frame(width: 44, height: 44)
         .background(Color.ui.primaryColor.opacity(0.5))
-        .containerShape(Capsule())
+        .containerShape(Circle())
         .overlay(
-            Capsule()
+            Circle()
                 .stroke(Color.ui.primaryColor, lineWidth: 1)
         )
     }
@@ -31,13 +32,20 @@ struct RoundBackButton: View {
 struct RoundLikeButton: View {
     @Environment(\.dismiss) private var dismiss
     
-    @Binding var isFavorite: Bool
-    
+    let catBreedId: String
     var homePageShowFavoriteOnly: Bool
+    
+    @Binding var isFavorite: Bool
     
     var body: some View {
         Button {
+            // Update view
             self.isFavorite.toggle()
+            // Update local model IN DATABASE
+            Task {
+                await DataRepository.shared.toggleFavorite(catBreedId: catBreedId)
+            }
+            
             if homePageShowFavoriteOnly {
                 self.dismiss()
             }
@@ -56,9 +64,9 @@ struct RoundLikeButton: View {
         }
         .frame(width: 44, height: 44)
         .background(Color.ui.primaryColor.opacity(0.5))
-        .containerShape(Capsule())
+        .containerShape(Circle())
         .overlay(
-            Capsule()
+            Circle()
                 .stroke(Color.ui.primaryColor, lineWidth: 1)
         )
     }
@@ -68,8 +76,8 @@ struct RoundButtons_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             RoundBackButton()
-            RoundLikeButton(isFavorite: .constant(false), homePageShowFavoriteOnly: false)
-            RoundLikeButton(isFavorite: .constant(true), homePageShowFavoriteOnly: false)
+//            RoundLikeButton(isFavorite: .constant(false), homePageShowFavoriteOnly: false)
+//            RoundLikeButton(isFavorite: .constant(true), homePageShowFavoriteOnly: false)
         }
         .previewLayout(.sizeThatFits)
     }
