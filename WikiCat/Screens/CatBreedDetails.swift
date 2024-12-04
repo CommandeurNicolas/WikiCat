@@ -55,9 +55,15 @@ struct CatBreedDetails: View {
                 // Important details (life span and weight)
                 HStack(alignment: .center) {
                     Spacer()
-                    CatBreedImportantDetails(title: "Life span", description: "\(catBreed.lifeSpan) Years")
+                    CatBreedImportantDetails(
+                        title: "Life span",
+                        description: "\(catBreed.lifeSpan) Years"
+                    )
                     Spacer()
-                    CatBreedImportantDetails(title: "Weight", description: "\(catBreed.weight.metric) Kg")
+                    CatBreedImportantDetails(
+                        title: "Weight",
+                        description: "\(catBreed.weight.metric) Kg"
+                    )
                     Spacer()
                 }
                 .padding(.vertical, 16)

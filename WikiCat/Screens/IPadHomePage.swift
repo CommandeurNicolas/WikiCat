@@ -43,6 +43,8 @@ struct IPadHomePage: View {
             }
         } detail: {
             Text("Select a cat breed to see its details.")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.ui.backgroundColor)
         }
         .ignoresSafeArea()
         .background(Color.ui.backgroundColor)

@@ -33,7 +33,7 @@ struct VisionHomePage: View {
             VStack {
                 List(filteredBreeds) { breed in
                     NavigationLink {
-                        CatBreedDetailsIPad(catBreed: breed)
+                        CatBreedDetailsIPad(catBreed: breed, visionStyle: true)
                     } label: {
                         Text(breed.name)
                             .font(.title)
