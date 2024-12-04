@@ -51,7 +51,6 @@ struct ChipTag: View {
                     Capsule()
                         .strokeBorder(color)
                         .background(Capsule().fill(color.opacity(0.2)))
-                        
                 }
             )
     }

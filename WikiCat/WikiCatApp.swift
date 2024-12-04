@@ -14,7 +14,14 @@ struct WikiCatApp: App {
     var body: some Scene {
         WindowGroup {
             if appLoaded {
-                HomePage()
+                switch Device.deviceType {
+                case .ipad:
+                    IPadHomePage()
+                case .vision:
+                    VisionHomePage()
+                default:
+                    HomePage()
+                }
             } else {
                 SplashScreen(loaded: $appLoaded)
             }

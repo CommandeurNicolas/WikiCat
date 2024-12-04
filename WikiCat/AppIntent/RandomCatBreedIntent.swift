@@ -13,8 +13,6 @@ struct RandomCatBreedIntent: AppIntent {
     static var title: LocalizedStringResource = "Random cat breed"
     static var description = IntentDescription("Show the details of a cat breed")
     
-    let screenBounds = UIScreen().bounds
-    
     static var openAppWhenRun: Bool = false
     
     @MainActor

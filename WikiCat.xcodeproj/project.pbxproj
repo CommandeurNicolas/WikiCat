@@ -51,6 +51,11 @@
 		F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */; };
 		F6DA8E712A0D3D8900F75EEA /* MyIntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */; };
 		F6DA8E732A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */; };
+		F6F0251B2CFDECAD00B57C95 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0251A2CFDECAB00B57C95 /* Device.swift */; };
+		F6F0251D2CFDED3600B57C95 /* IPadHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0251C2CFDED3200B57C95 /* IPadHomePage.swift */; };
+		F6F0255B2CFDF07800B57C95 /* CatBreedDetailsIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0255A2CFDF07300B57C95 /* CatBreedDetailsIPad.swift */; };
+		F6F0255E2CFE0C3B00B57C95 /* DetailsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0255D2CFE0C3800B57C95 /* DetailsImage.swift */; };
+		F6F025602CFE17A300B57C95 /* VisionHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0255F2CFE179C00B57C95 /* VisionHomePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +138,11 @@
 		F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificCatBreedIntent.swift; sourceTree = "<group>"; };
 		F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIntentError.swift; sourceTree = "<group>"; };
 		F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedDetailsSnippetView.swift; sourceTree = "<group>"; };
+		F6F0251A2CFDECAB00B57C95 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		F6F0251C2CFDED3200B57C95 /* IPadHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadHomePage.swift; sourceTree = "<group>"; };
+		F6F0255A2CFDF07300B57C95 /* CatBreedDetailsIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedDetailsIPad.swift; sourceTree = "<group>"; };
+		F6F0255D2CFE0C3800B57C95 /* DetailsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsImage.swift; sourceTree = "<group>"; };
+		F6F0255F2CFE179C00B57C95 /* VisionHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionHomePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,9 +176,10 @@
 				030B5C07297E0C590059B084 /* CatBreed.swift */,
 				030B5C09297E0C6A0059B084 /* CatImage.swift */,
 				030B5C0B297E0C760059B084 /* CatWeight.swift */,
+				F6F0251A2CFDECAB00B57C95 /* Device.swift */,
+				F6B404B92A15160800D137A2 /* HttpRequestManager.swift */,
 				030B5C0D297E0CE30059B084 /* ModelData.swift */,
 				F69BE8B02A13D3E100332C33 /* NetworkMonitor.swift */,
-				F6B404B92A15160800D137A2 /* HttpRequestManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,17 +187,18 @@
 		030B5C0F297E0CF00059B084 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				030B5C10297E0D1B0059B084 /* StarRating.swift */,
-				030B5C14297E0E160059B084 /* SearchBar.swift */,
+				F69BE8A02A12837D00332C33 /* BreedAttributesList.swift */,
 				03C6177629BBE4BF008EC9FF /* BreedListItem.swift */,
+				F69BE89C2A127A7900332C33 /* BreedTemperamentList.swift */,
+				F69BE89A2A12712C00332C33 /* CatBreedImportantDetails.swift */,
 				038BD3B229C21A34009D2E13 /* ChipTag.swift */,
 				F60328402A125DEB00605D1F /* CustomTopAppBar.swift */,
-				F69BE8962A12700800332C33 /* RoundButtons.swift */,
-				F69BE8982A12710A00332C33 /* ShowMoreButton.swift */,
-				F69BE89A2A12712C00332C33 /* CatBreedImportantDetails.swift */,
+				F6F0255D2CFE0C3800B57C95 /* DetailsImage.swift */,
 				F69BE89E2A127AAC00332C33 /* FlexibleRowView.swift */,
-				F69BE8A02A12837D00332C33 /* BreedAttributesList.swift */,
-				F69BE89C2A127A7900332C33 /* BreedTemperamentList.swift */,
+				F69BE8962A12700800332C33 /* RoundButtons.swift */,
+				030B5C14297E0E160059B084 /* SearchBar.swift */,
+				F69BE8982A12710A00332C33 /* ShowMoreButton.swift */,
+				030B5C10297E0D1B0059B084 /* StarRating.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +227,10 @@
 		0354CF27297386FD003CC31A /* WikiCat */ = {
 			isa = PBXGroup;
 			children = (
+				030B5C01297E0BCF0059B084 /* Info.plist */,
+				0354CF2A297386FD003CC31A /* ContentView.swift */,
+				03C6177429BBE150008EC9FF /* Extension.swift */,
+				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
 				03C6178F29BF7781008EC9FF /* Asap-Bold.ttf */,
 				03C6178C29BF7781008EC9FF /* Asap-BoldItalic.ttf */,
 				03C6178A29BF7781008EC9FF /* Asap-Italic.ttf */,
@@ -223,20 +239,14 @@
 				03C6178D29BF7781008EC9FF /* Asap-Regular.ttf */,
 				03C6178929BF7781008EC9FF /* Asap-SemiBold.ttf */,
 				03C6178B29BF7781008EC9FF /* Asap-SemiBoldItalic.ttf */,
+				0354CF2C297386FE003CC31A /* Assets.xcassets */,
 				F6DA8E692A0D3CF400F75EEA /* AppIntent */,
 				030B5C06297E0C4C0059B084 /* Model */,
+				0354CF2E297386FE003CC31A /* Preview Content */,
 				F6B499592CE74676001B9230 /* Repositories */,
+				F6F0255C2CFE0BFD00B57C95 /* Screens */,
 				030B5C0F297E0CF00059B084 /* View */,
 				F6B499B32CECD41D001B9230 /* ViewModels */,
-				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
-				F69BE8B42A14D98600332C33 /* SplashScreen.swift */,
-				0354CF2A297386FD003CC31A /* ContentView.swift */,
-				030B5C02297E0C160059B084 /* HomePage.swift */,
-				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
-				030B5C01297E0BCF0059B084 /* Info.plist */,
-				0354CF2C297386FE003CC31A /* Assets.xcassets */,
-				0354CF2E297386FE003CC31A /* Preview Content */,
-				03C6177429BBE150008EC9FF /* Extension.swift */,
 			);
 			path = WikiCat;
 			sourceTree = "<group>";
@@ -285,14 +295,27 @@
 		F6DA8E692A0D3CF400F75EEA /* AppIntent */ = {
 			isa = PBXGroup;
 			children = (
-				F64CA95E2A03FFEF0098991E /* IntentProvider.swift */,
-				F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */,
-				F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */,
-				F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */,
-				F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */,
 				F6DA8E722A0D3DAC00F75EEA /* CatBreedDetailsSnippetView.swift */,
+				F64CA95E2A03FFEF0098991E /* IntentProvider.swift */,
+				F6DA8E702A0D3D8900F75EEA /* MyIntentError.swift */,
+				F6DA8E6C2A0D3D4500F75EEA /* RandomCatBreedIntent.swift */,
+				F6DA8E6A2A0D3D0F00F75EEA /* RandomImageIntent.swift */,
+				F6DA8E6E2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift */,
 			);
 			path = AppIntent;
+			sourceTree = "<group>";
+		};
+		F6F0255C2CFE0BFD00B57C95 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				030B5C04297E0C360059B084 /* CatBreedDetails.swift */,
+				F6F0255A2CFDF07300B57C95 /* CatBreedDetailsIPad.swift */,
+				030B5C02297E0C160059B084 /* HomePage.swift */,
+				F6F0251C2CFDED3200B57C95 /* IPadHomePage.swift */,
+				F69BE8B42A14D98600332C33 /* SplashScreen.swift */,
+				F6F0255F2CFE179C00B57C95 /* VisionHomePage.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,6 +465,7 @@
 				F6DA8E712A0D3D8900F75EEA /* MyIntentError.swift in Sources */,
 				F64CA95F2A03FFEF0098991E /* IntentProvider.swift in Sources */,
 				030B5C08297E0C590059B084 /* CatBreed.swift in Sources */,
+				F6F0255B2CFDF07800B57C95 /* CatBreedDetailsIPad.swift in Sources */,
 				030B5C05297E0C360059B084 /* CatBreedDetails.swift in Sources */,
 				F6DA8E6B2A0D3D0F00F75EEA /* RandomImageIntent.swift in Sources */,
 				F6DA8E6D2A0D3D4500F75EEA /* RandomCatBreedIntent.swift in Sources */,
@@ -454,13 +478,17 @@
 				030B5C03297E0C160059B084 /* HomePage.swift in Sources */,
 				F69BE8B12A13D3E100332C33 /* NetworkMonitor.swift in Sources */,
 				F69BE8A12A12837D00332C33 /* BreedAttributesList.swift in Sources */,
+				F6F025602CFE17A300B57C95 /* VisionHomePage.swift in Sources */,
 				030B5C0C297E0C760059B084 /* CatWeight.swift in Sources */,
 				030B5C0E297E0CE30059B084 /* ModelData.swift in Sources */,
 				F69BE8B52A14D98600332C33 /* SplashScreen.swift in Sources */,
 				F69BE8972A12700800332C33 /* RoundButtons.swift in Sources */,
 				F69BE89B2A12712C00332C33 /* CatBreedImportantDetails.swift in Sources */,
 				030B5C0A297E0C6A0059B084 /* CatImage.swift in Sources */,
+				F6F0251D2CFDED3600B57C95 /* IPadHomePage.swift in Sources */,
 				F69BE89F2A127AAC00332C33 /* FlexibleRowView.swift in Sources */,
+				F6F0251B2CFDECAD00B57C95 /* Device.swift in Sources */,
+				F6F0255E2CFE0C3B00B57C95 /* DetailsImage.swift in Sources */,
 				F60328412A125DEB00605D1F /* CustomTopAppBar.swift in Sources */,
 				F6DA8E6F2A0D3D6D00F75EEA /* SpecificCatBreedIntent.swift in Sources */,
 				030B5C15297E0E160059B084 /* SearchBar.swift in Sources */,
@@ -647,9 +675,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolascommandeur.WikiCat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Debug;
 		};
@@ -679,9 +710,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolascommandeur.WikiCat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Release;
 		};

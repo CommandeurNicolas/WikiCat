@@ -13,8 +13,6 @@ struct SpecificCatBreedIntent: AppIntent {
     static var title: LocalizedStringResource = "Specific cat breed"
     static var description = IntentDescription("Show the details of a specific cat breed")
     
-    let screenBounds = UIScreen().bounds
-    
     static var openAppWhenRun: Bool = false
     
     @Parameter(title: "Breed name", requestValueDialog: "What's the name of the breed ?")

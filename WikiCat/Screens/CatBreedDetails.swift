@@ -21,19 +21,16 @@ struct CatBreedDetails: View {
             VStack(alignment: .leading) {
                 // Reference image TODO: change to carousel of multiple images
                 // NavBar (Back + favorite buttons)
-                ZStack {
+                ZStack(alignment: .top) {
                     if NetworkMonitor.shared.isConnected && self.catBreed.image != nil {
                         DetailsImage(imgUrl: self.catBreed.image?.url)
                     }
-                    VStack {
-                        HStack {
-                            RoundBackButton()
-                            Spacer()
-                            RoundLikeButton(catBreedId: self.catBreed.id, homePageShowFavoriteOnly: self.homePageShowFavoriteOnly, isFavorite: $isFavorite)
-                        }
-                        .padding(15)
+                    HStack {
+                        RoundBackButton()
                         Spacer()
+                        RoundLikeButton(catBreedId: self.catBreed.id, homePageShowFavoriteOnly: self.homePageShowFavoriteOnly, isFavorite: $isFavorite)
                     }
+                    .padding(16)
                 }
                 // Name
                 Text(self.catBreed.name)
@@ -126,41 +123,6 @@ struct CatBreedDetails: View {
         .toolbar(.hidden, for: .navigationBar)
         .ignoresSafeArea()
         .background(Color.ui.backgroundColor)
-    }
-}
-
-struct DetailsImage: View {
-    let imgUrl: String!
-    
-    // TODO: Sauvegarder l'image et stocket son chemin et une instance Image dans CatBreed
-    
-    var body: some View {
-        AsyncImage(url: URL(string: self.imgUrl), transaction: Transaction(animation: .spring())) {
-            phase in
-            switch phase {
-            case .empty:
-                ProgressView()
-                    .font(.largeTitle)
-                    .padding()
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .transition(.opacity)
-            case .failure(_):
-                Image(systemName: "exclamationmark.icloud")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.red)
-                    .padding()
-            @unknown default:
-                // TODO: replace with http cats call ? or a default http cat image ?
-                EmptyView()
-            }
-        }
-        // TODO: replace with aspectRatio ???
-        .frame(width: 363, height: 363)
-        .cornerRadius(16)
     }
 }
 

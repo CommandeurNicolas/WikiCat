@@ -24,8 +24,6 @@ struct RandomCatImageIntent: AppIntent  {
     static var title: LocalizedStringResource = "Random cat pic"
     static var description = IntentDescription("Show the image of a random cat")
     
-    let screenBounds = UIScreen().bounds
-    
     static var openAppWhenRun: Bool = false
     
     @MainActor

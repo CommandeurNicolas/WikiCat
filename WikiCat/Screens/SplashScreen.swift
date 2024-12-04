@@ -40,8 +40,8 @@ struct SplashScreen: View {
             .padding(.horizontal, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.ui.backgroundColor)
         .padding(.horizontal, 16)
+        .background(Color.ui.backgroundColor)
         .task {
             await self.loadBreeds()
         }
