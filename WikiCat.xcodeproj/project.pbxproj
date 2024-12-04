@@ -231,16 +231,9 @@
 				0354CF2A297386FD003CC31A /* ContentView.swift */,
 				03C6177429BBE150008EC9FF /* Extension.swift */,
 				0354CF28297386FD003CC31A /* WikiCatApp.swift */,
-				03C6178F29BF7781008EC9FF /* Asap-Bold.ttf */,
-				03C6178C29BF7781008EC9FF /* Asap-BoldItalic.ttf */,
-				03C6178A29BF7781008EC9FF /* Asap-Italic.ttf */,
-				03C6178E29BF7781008EC9FF /* Asap-Medium.ttf */,
-				03C6179029BF7781008EC9FF /* Asap-MediumItalic.ttf */,
-				03C6178D29BF7781008EC9FF /* Asap-Regular.ttf */,
-				03C6178929BF7781008EC9FF /* Asap-SemiBold.ttf */,
-				03C6178B29BF7781008EC9FF /* Asap-SemiBoldItalic.ttf */,
 				0354CF2C297386FE003CC31A /* Assets.xcassets */,
 				F6DA8E692A0D3CF400F75EEA /* AppIntent */,
+				F6511C212D00B40400B77EF8 /* Fonts */,
 				030B5C06297E0C4C0059B084 /* Model */,
 				0354CF2E297386FE003CC31A /* Preview Content */,
 				F6B499592CE74676001B9230 /* Repositories */,
@@ -274,6 +267,21 @@
 				0354CF45297386FE003CC31A /* WikiCatUITestsLaunchTests.swift */,
 			);
 			path = WikiCatUITests;
+			sourceTree = "<group>";
+		};
+		F6511C212D00B40400B77EF8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				03C6178F29BF7781008EC9FF /* Asap-Bold.ttf */,
+				03C6178C29BF7781008EC9FF /* Asap-BoldItalic.ttf */,
+				03C6178A29BF7781008EC9FF /* Asap-Italic.ttf */,
+				03C6178E29BF7781008EC9FF /* Asap-Medium.ttf */,
+				03C6179029BF7781008EC9FF /* Asap-MediumItalic.ttf */,
+				03C6178D29BF7781008EC9FF /* Asap-Regular.ttf */,
+				03C6178929BF7781008EC9FF /* Asap-SemiBold.ttf */,
+				03C6178B29BF7781008EC9FF /* Asap-SemiBoldItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		F6B499592CE74676001B9230 /* Repositories */ = {
