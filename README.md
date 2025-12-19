@@ -8,7 +8,7 @@
 - [x] Search bar to search for a precise breed
 - [x] Local storage of breeds and their thumbnail
 - [x] Tags
-- [ ] Shortcut on your iDevice main screen / Siri phrases reactions ***\[REWORK IN PROGRESS\]***
+- [ ] Shortcut on your main screen / Siri phrases reactions ***\[REWORK IN PROGRESS\]***
     * Get a random image of a cat
     * Save the image in your photo gallery
     * Get the details of a random cat breed
